@@ -86,26 +86,26 @@
         products to test and iterate on performance and interoperability.</a>
       </li>
       <li>
-        <em>Provide a complementary set of specifications for the Presentation
-        API.</em>.  The Presentation API specification, by nature of its scope,
-        leaves many details up to the API implementation.  This includes how
-        presentation displays are discovered, how presentations are started,
-        reconnected, and stopped, and how the controller and receiver
-        communicate.  The proposed specifications will provide a concrete
-        implementation of how the requirements of the Presentation API can be
-        met and will clarify issues were not addressed in the API specification.
+        <em>Provide complementary specifications for the Presentation API.</em>.
+        The Presentation API, by nature of its scope, leaves many details up to
+        the implementation.  This includes how presentation displays are
+        discovered, how presentations are started, connected, and stopped, and
+        how the controller and receiver communicate.  The proposed
+        specifications will provide details on how the requirements of the
+        Presentation API can be met and can clarify issues that were not
+        addressed in the API specification.
       </li>
     </ul>
     <p>
       The scope of work proposed here goes beyond the current <a href=
       "http://www.w3.org/2014/secondscreen/charter.html#scope">scope</a> of the
-      <a href="http://www.w3.org/2014/secondscreen/">Second Screen Working
-      Group (WG)</a>.  Given wider support and adequate stability, we plan to migrate the
-        proposals generated in this Community Group to an appropriate standards
-        track, for example
-        the <a href="https://tools.ietf.org/html/rfc2026#section-4">IETF
-        Standards Track</a> or a <a >W3C Working Group</a>, for further contributions and formal
-        standardization.
+      <a href="http://www.w3.org/2014/secondscreen/">Second Screen Working Group
+      (WG)</a>.  Given wider support and adequate stability, we plan to migrate
+      the proposals generated in this Community Group to an appropriate
+      standards track, for example
+      the <a href="https://tools.ietf.org/html/rfc2026#section-4">IETF Standards
+      Track</a> or a <a >W3C Working Group</a>, for further contributions and
+      formal standardization.
     </p>
     <p>
       Membership of the group is open to everybody. Upon joining the group,
@@ -127,7 +127,7 @@
       work was migrated to the W3C Second Screen Working Group (WG) and the
       Community Group Final Report was provided as input to the <a href=
       "https://w3c.github.io/presentation-api/">Presentation API</a> that is
-      now being worked on in the WG.
+      now being developed in the WG.
     </p>
     <p>
       The Presentation API allows web applications to use secondary screens to
@@ -145,18 +145,57 @@
     <h2 id="scope-of-work">
       Scope of Work
     </h2>
-    <p>
-      TBD
-    </p>
     <h2 id="out-of-scope">
       Out of Scope
     </h2>
     <p>
-      TBD
+      For this chartering of the CG, the following tasks are out of scope.
+    </p>
+    <ul>
+      <li>
+        Developing specifications that support the <a href="">Remote Playback
+        API</a>.  This API is at an earlier stage of maturity at this time.
+      </li>
+      <li>
+        Developing specifications to support 1-UA mode.
+      </li>
+      <li>
+        Developing specifications to support specific proprietary media sharing
+        protocols such as DIAL, DLNA, Google Cast, MiraCast, or Airplay.
+      </li>
+    </ul>
+    <p class="issue">
+      We should discuss whether supporting 1-UA mode interop is feasible and in
+      scope for the CG.  The challenge is doing it well.  I propose doing this
+      once WebRTC has native, high quality screencasting.
+    </p>
+    <p>
+      We should discuss how to make the protocol extensible for vendor specific
+      schemes if they want to leverage lower levels of the specification, while
+      preserving interoperability for higher levels.
     </p>
     <h2 id="deliverables">
       Deliverables
     </h2>
+    <p>
+      The CG will deliver the following.
+      </p>
+    <ol>
+      <li>The <a href="#specifications">specifications</a> listed below.</li>
+      <li>
+        A prototype implementation those specifications, published on GitHub or
+        an equivalent open source repository.
+      </li>
+      <li>
+        A demonstration of interoperabilty between two or more major browser
+        vendors showing use of the specifications produced by this CG to
+        implement the Presentation API.
+      </li>
+      <li>
+        A test suite to verify the compliance of an implementation of the
+        specifications produced by this CG.
+      </li>
+    </ol>
     <h3 id="specifications">
       Specifications
     </h3>
@@ -165,26 +204,39 @@
       section</strong>.
     </p>
     <p>
+      The CG will produce the following specifications.
+    </p>
+    <ol>
+      <li>A specification, <em>Presentation Display Discovery and
+        Connection</em>, that will specify how the controlling user agent may
+        find available presentation displays and establish two-way communication
+        with them.  This specification must meet <a href="">requirements REQ1-REQN</a>.
+      </li>
+      <li>
+        A specification, <em>Presentation Display Security Architecture</em>,
+        that presents a security model that provides authentication of the
+        presentation display and confidentiality for data exchanged between the
+        controlling user agent and the display.  This specification must meet 
+        <href="">requirement REQ-S</a>.
+      </li>
+      <li>
+        A specification, <em>Presentation Display Protocol: 2-UA mode</em>, that
+        describes how a controlling user agent may start, connect, stop and
+        exchange messages with a presentation rendered by a distinct receiving
+        user agent.  This specification must meet <a href="">requirements REQX-REQY</a>.
+      </li>
+    </ol>
+    <p class="note">
+      The specification titles are for demonstration purposes in this charter,
+      the actual titles may differ.
+    </p>
+    <p>
       To add any additional specifications, this Charter must be amended by the
       process described in the <a href="#charter-change">Amendments to the
       Charter</a> section. All deliverables for which the CLA <a href=
       "https://www.w3.org/community/about/agreements/cla/#id3">Patents</a>
       section applies must be designated as such here.
     </p>
-    <dl>
-      <dt>
-        Feature
-      </dt>
-      <dd>
-        Description
-      </dd>
-      <dt>
-        ...
-      </dt>
-      <dd>
-        ...
-      </dd>
-    </dl>
     <h3 id="non-normative-reports">
       Non-Normative Reports
     </h3>
