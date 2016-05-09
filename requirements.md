@@ -1,69 +1,147 @@
 # Requirements for Presentation API protocols 
 
 This document is a working draft that captures a set of technical requirements
-for the network protocols to be developed by the Second Screen Community Group.
+for the network protocols to be developed by the [Second Screen Community
+Group](https://webscreens.github.io/cg-charter/).  These requirements are
+intended to guide the development of the specifications to be developed by the
+Second Screen Community Group.
+
+The terms *controlling user agent*, *receiving user agent*, *controlling
+browsing context*, *receiving browsing context*, and *destination browsing
+context* are defined in the [Presentation
+API](https://w3c.github.io/presentation-api/).
 
 Below, the term "controller" is used as short for a controlling user agent and
-"receiver" as short for a receiving user agent.  "Presentation Display" refers
-to the network-connected device that hosts the receiving user agent.
+"receiver" as short for a receiving user agent.  "Presentation display" refers
+to a network-connected device that hosts the receiving user agent.
 
 ## <a name="spec-ddc"></a>Presentation Display Discovery and Connection requirements
 
-The following requirements apply to the proposed specification, <em>Presentation
-Display Discovery and Connection</em>.
+The following requirements apply to the proposed specification, *Presentation
+Display Discovery and Connection*.
 
-### <a name="REQ-D01"></a>REQ-D01: Presentation Display Discovery
+### <a name="REQ-D01"></a>REQ-D01: Presentation Display Availability
 
-The controller shall be able to discover the presence of a receiver connected to
-the same IPv4 or IPv6 subnet.  It shall be able to obtain the IPv4 or IPv6
-address of the receiver, a human readable name for the presentation display, and
-an IP port number to initiate connectivity to the receiver.
+- A controller shall be able to discover the presence of a receiver connected to
+the same IPv4 or IPv6 subnet and reachable by IP multicast.
+
+- It shall be able to obtain the IPv4 or IPv6 address of the receiver, a human
+readable name for the presentation display, and an IP address and port number of
+the receiver.
 
 ### <a name="REQ-D02"></a>REQ-D02: Presentation Display Status
 
-If the receiver so configured, the controller shall be able to determine if the
+- If the receiver so configured, the controller shall be able to determine if the
 receiver has one or more active presentations.
 
-If the receiver is so configured, the controller will also be able to discover
-presentation URLs and presentation IDs of those presentations.
+- If the receiver is so configured, the controller will also be able to discover
+the presentation URLs and presentation IDs of those presentations.
 
-If a receiver is no longer available to a controller (or vice versa) (by losing
-power, becoming disconnected from the network, etc.), the controller will be
-able to determine this change within 30 seconds.
+- If a receiver is newly available to a controller (by connecting to the same
+  LAN, powering on, etc.) the controller shall be able to determine this status
+  change within 30 seconds.
 
-### <a name="REQ-D03"></a>REQ-D03: Presentation Connection Establishment
+- If a receiver is no longer available to a controller (or vice versa) (by
+losing power, becoming disconnected from the network, etc.), the controller (or
+receiver) will be able to determine this status change within 30 seconds.
 
-The controller must be able to intitiate and terminate a connection to the
-receiver.
+### <a name="REQ-D02"></a>REQ-D03: Presentation URL Compatibility
 
-### <a name="REQ-D04"></a>REQ-D04: Presentation Connection Functions
+- The controller shall be able to determine if the receiver is compatible with a
+  specific presentation URL.
 
-* Connect and disconnect to/from multiple browsing contexts in each user agent
-* Send messages to/from multiple browsing contexts
+### <a name="REQ-D04"></a>REQ-D04: Presentation Connection Establishment
 
-### <a name="REQ-D05"></a>REQ-D05: Presentation Connection Messaging Characteristics
+- A controller shall be able to connect to a receiver given its IP address and port.
 
-* Reliability, in-order
-* Desirable latency
-* Message size
+- A controller shall be able to terminate a connection with a receiver, and vice versa.
 
 ## <a name="spec-sec"></a>Presentation Display Security Requirements
 
-* TLS 1.3
-* Strong ciphers
-* No weird legacy SSL/TLS features
-* Bind channel to human visible name
-* First-time verification & reverification on name/network change
-* Controller trust store management
-* Hardware TPM?
+The following requirements apply to the proposed specification, *Presentation
+Display Security*.  These are high level requirements which will become more
+specific as the security architecture evolves.
+
+- Communication between the controller and receiver shall be confidential, to prevent
+  passive eavesdropping attacks.
+
+- The controller shall be able to authenticate that the receiver is same device
+  that is shown to the user when permission is granted for starting a presentation,
+  to prevent man-in-the-middle attacks.
 
 ## <a name="spec-rendering"></a>Presentation Display Remote Rendering Requirements
 
-TBD
+The following requirements apply to the proposed specification, *Presentation
+Display Remote Rendering*.
+
+### <a name="REQ-R01"></a>REQ-R01: Creating A Receiving Browsing Context
+
+- A controller shall be able to request the creation of a receiving browsing
+  context on an available receiver, given a Presentation ID and Presentation
+  URL.
+
+- The receiver shall be able to return the outcome of the creation request to the
+  controller (success or failure).
+
+### <a name="REQ-R02"></a>REQ-D02: Terminating A Receiving Browsing Context
+
+- A controller shall be able to request the termination of a receiving browsing
+  context on a receiver, given a Presentation ID and Presentation URL.
+
+- The receiver shall be able to return the outcome of the termination request to
+  the controller (success or failure).
+
+### <a name="REQ-R03"></a>REQ-D03: Receiving Browsing Context Status Change
+
+- A receiver shall be able to notify a connected controller when a receiving
+  browsing context has been terminated (other than via the termination request
+  above).
+
+- The notification shall be sent no later than 5 seconds after the receiving
+  browsing context has been terminated.
+
+### <a name="REQ-R04"></a>REQ-D04: Presentation Connections Between Browsing Contexts
+
+- A controller shall be able to connect a specific controlling browsing context to a
+specific receiving browing context in a receiver.
+
+- A controller shall be able to disconnect a specific controlling browsing context to a
+specific receiving browing context in a receiver.
+
+- A receiver shall be able to disconnect a receiving browsing context from a
+specific controlling browing context in a controller.
+
+### <a name="REQ-R05"></a>REQ-D05: Presentation Connection Messaging
+
+- A user agent shall have a way to address a message to a specific destination
+  browsing context.
+
+- From a given browsing context, messages sent to the destination browsing
+  context shall arrive in-order.  This means: if message A is sent before
+  message B on a single PresentationConnection, then a `message` event on the
+  destination PresentationConnection with A will fire before a `message` event
+  with B.
+
+- The latency to transmit a message from the controller to the receiver shall
+  approximate the network latency between the user agents (accounting for
+  message size and reasonable protocol overhead).
+
+- The destination user agent shall have a way of preventing the sending user
+  agent from transmitting messages faster than they can be consumed.
+
+- For DOMString, ArrayBuffer, and ArrayBufferView messages, controllers and
+  receivers shall support messages up to 4 megabytes in size.
+
+- For Blob messages, controllers and receivers shall support messages up to 256
+  megabytes in size.
+
+- DOMString messages shall be transmitted in UTF-8.
 
 ## <a name="spec-playback"></a>Presentation Display Remote Playback Requirements
 
-TBD
+TBD.
 
 ## References
+
+TBD.
 
