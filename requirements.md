@@ -29,6 +29,10 @@ the same IPv4 or IPv6 subnet and reachable by IP multicast.
 readable name for the presentation display, and an IP address and port number of
 the receiver.
 
+*NOTE:* Requirements for presentation display discovery techniques other than
+via the LAN, such as Bluetooth and NFC, will be embedded within the
+corresponding non-normative reports.
+
 ### <a name="REQ-D02"></a>REQ-D02: Presentation Display Status
 
 - If the receiver so configured, the controller shall be able to determine if the
@@ -38,17 +42,21 @@ receiver has one or more active presentations.
 the presentation URLs and presentation IDs of those presentations.
 
 - If a receiver is newly available to a controller (by connecting to the same
-  LAN, powering on, etc.) the controller shall be able to determine this status
-  change within 30 seconds.
+LAN, powering on, etc.) the controller shall be able to determine this status
+change within a reasonable amount of time, so that pages using the
+Presentation API can show receive presentation display availablity changes in
+a timely manner.
 
 - If a receiver is no longer available to a controller (or vice versa) (by
 losing power, becoming disconnected from the network, etc.), the controller (or
-receiver) will be able to determine this status change within 30 seconds.
+receiver) will be able to determine this status change within a reasonable
+amount of time, so that pages using the Presentation API can show receive
+presentation display availablity changes in a timely manner.
 
 ### <a name="REQ-D02"></a>REQ-D03: Presentation URL Compatibility
 
 - The controller shall be able to determine if the receiver is compatible with a
-  specific presentation URL.
+specific presentation URL.
 
 ### <a name="REQ-D04"></a>REQ-D04: Presentation Connection Establishment
 
@@ -63,11 +71,11 @@ Display Security*.  These are high level requirements which will become more
 specific as the security architecture evolves.
 
 - Communication between the controller and receiver shall be confidential, to prevent
-  passive eavesdropping attacks.
+passive eavesdropping attacks.
 
 - The controller shall be able to authenticate that the receiver is same device
-  that is shown to the user when permission is granted for starting a presentation,
-  to prevent man-in-the-middle attacks.
+that is shown to the user when permission is granted for starting a presentation,
+to prevent man-in-the-middle attacks.
 
 ## <a name="spec-rendering"></a>Presentation Display Remote Rendering Requirements
 
@@ -77,28 +85,28 @@ Display Remote Rendering*.
 ### <a name="REQ-R01"></a>REQ-R01: Creating A Receiving Browsing Context
 
 - A controller shall be able to request the creation of a receiving browsing
-  context on an available receiver, given a Presentation ID and Presentation
-  URL.
+context on an available receiver, given a Presentation ID and Presentation
+URL.
 
 - The receiver shall be able to return the outcome of the creation request to the
-  controller (success or failure).
+controller (success or failure).
 
 ### <a name="REQ-R02"></a>REQ-D02: Terminating A Receiving Browsing Context
 
 - A controller shall be able to request the termination of a receiving browsing
-  context on a receiver, given a Presentation ID and Presentation URL.
+context on a receiver, given a Presentation ID and Presentation URL.
 
 - The receiver shall be able to return the outcome of the termination request to
-  the controller (success or failure).
+the controller (success or failure).
 
 ### <a name="REQ-R03"></a>REQ-D03: Receiving Browsing Context Status Change
 
 - A receiver shall be able to notify a connected controller when a receiving
-  browsing context has been terminated (other than via the termination request
-  above).
+browsing context has been terminated (other than via the termination request
+above).
 
 - The notification shall be sent no later than 5 seconds after the receiving
-  browsing context has been terminated.
+browsing context has been terminated.
 
 ### <a name="REQ-R04"></a>REQ-D04: Presentation Connections Between Browsing Contexts
 
@@ -114,26 +122,26 @@ specific controlling browing context in a controller.
 ### <a name="REQ-R05"></a>REQ-D05: Presentation Connection Messaging
 
 - A user agent shall have a way to address a message to a specific destination
-  browsing context.
+browsing context.
 
 - From a given browsing context, messages sent to the destination browsing
-  context shall arrive in-order.  This means: if message A is sent before
-  message B on a single PresentationConnection, then a `message` event on the
-  destination PresentationConnection with A will fire before a `message` event
-  with B.
+context shall arrive in-order.  This means: if message A is sent before
+message B on a single PresentationConnection, then a `message` event on the
+destination PresentationConnection with A will fire before a `message` event
+with B.
 
 - The latency to transmit a message from the controller to the receiver shall
-  approximate the network latency between the user agents (accounting for
-  message size and reasonable protocol overhead).
+approximate the network latency between the user agents (accounting for
+message size and reasonable protocol overhead).
 
 - The destination user agent shall have a way of preventing the sending user
-  agent from transmitting messages faster than they can be consumed.
+agent from transmitting messages faster than they can be consumed.
 
 - For DOMString, ArrayBuffer, and ArrayBufferView messages, controllers and
-  receivers shall support messages up to 4 megabytes in size.
+receivers shall support messages up to 4 megabytes in size.
 
 - For Blob messages, controllers and receivers shall support messages up to 256
-  megabytes in size.
+megabytes in size.
 
 - DOMString messages shall be transmitted in UTF-8.
 
