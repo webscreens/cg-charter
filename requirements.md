@@ -15,10 +15,10 @@ Below, the term "controller" is used as short for a controlling user agent and
 "receiver" as short for a receiving user agent.  "Presentation display" refers
 to a network-connected device that hosts the receiving user agent.
 
-## <a name="spec-ddc"></a>Presentation Display Discovery and Connection requirements
+## <a name="spec-ddc"></a>Presentation Display Discovery, Connection, and Security requirements
 
 The following requirements apply to the proposed specification, *Presentation
-Display Discovery and Connection*.
+Display Discovery, Connection, and Security*.
 
 ### <a name="REQ-D01"></a>REQ-D01: Presentation Display Availability
 
@@ -64,18 +64,17 @@ specific presentation URL.
 
 - A controller shall be able to terminate a connection with a receiver, and vice versa.
 
-## <a name="spec-sec"></a>Presentation Display Security Requirements
+### <a name="REQ-D04"></a>REQ-D05: Presentation Connection Authentication and Security
 
-The following requirements apply to the proposed specification, *Presentation
-Display Security*.  These are high level requirements which will become more
-specific as the security architecture evolves.
-
-- Communication between the controller and receiver shall be confidential, to prevent
-passive eavesdropping attacks.
+These security requirements are high level and will become more specific as the
+security architecture evolves.
 
 - The controller shall be able to authenticate that the receiver is same device
 that is shown to the user when permission is granted for starting a presentation,
 to prevent man-in-the-middle attacks.
+
+- Communication between the controller and receiver shall be confidential, to prevent
+passive eavesdropping attacks.
 
 ## <a name="spec-rendering"></a>Presentation Display Remote Rendering Requirements
 
@@ -105,8 +104,8 @@ the controller (success or failure).
 browsing context has been terminated (other than via the termination request
 above).
 
-- The notification shall be sent no later than 5 seconds after the receiving
-browsing context has been terminated.
+- The notification shall be sent a short time after the receiving browsing
+context has been terminated.
 
 ### <a name="REQ-R04"></a>REQ-D04: Presentation Connections Between Browsing Contexts
 

@@ -82,24 +82,23 @@
     <ul>
       <li>
         <em>Enable interoperability among implementations of the Presentation
-        API.</em> A user agent that implements the proposed specifications
-        should be able to act as a <a href=
+        API.</em> Browsers and displays that implement the proposed
+        specifications should be able to act as <a href=
         "https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent">controlling
-        user agent</a> or <a href=
+        user agents</a> or <a href=
         "https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent">receiving
-        user agent</a> for another user agent that implements the same
-        specifications, implementing strong security and authentication for data
-        exchanged between them. Interoperability among controllers and receivers
-        will increase the number of opportunities for the Presentation API to be
-        used. Interoperability will also create more uniform and predictable API
-        behavior across browsers, encouraging adoption of the Presentation API
-        by Web developers.
+        user agents</a> for the Presentation API, with strong security and
+        authentication for the data exchanged among them. Interoperability among
+        controllers and receivers will increase the number of opportunities for
+        the Presentation API to be used. Interoperability will also create more
+        uniform and predictable API behavior across user agents, encouraging
+        adoption of the Presentation API by Web developers.
       </li>
       <li>
         <em>Encourage implementation of the Presentation API by browser
         vendors.</em> The proposed specifications should reduce the design work
-        required to implement the Presentation API in a browser. Ideally,
-        browser vendors will be able to incorporate any prototype implementation
+        required to implement the Presentation API in a user agent. Ideally,
+        vendors will be able to incorporate any prototype implementation
         produced by the Community Group directly into their products to
         experiment and iterate on stability and performance, and provide
         feedback to the group on the proposed specifications.
@@ -126,6 +125,11 @@
       "https://tools.ietf.org/html/rfc2026#section-4">IETF Standards Track</a>
       or a <a href="https://www.w3.org/Consortium/activities#Working">W3C
       Working Group</a>, for further contributions and formal standardization.
+    </p>
+    <p class="note">
+      The process, structure, format and patent policies of prospective
+      standards bodies should be discussed before committing to a particular
+      standards track for this work.
     </p>
     <p>
       Membership of the group is open to everybody. Upon joining the group,
@@ -205,18 +209,27 @@
       For this community group, the following tasks are out of scope.
     </p>
     <ul>
-      <li>Specifications of user agent or presentation display behavior beyond
-      what is required to send, receive, and process network data, or to meet
-      security, privacy and accessibility requirements for the protocols. The
-      behavior of the user agents when presenting with respect to the Web
-      content and the user is defined by the Presentation API.
+      <li>
+        Specifications of user agent or presentation display behavior beyond
+        what is required to send, receive, and process network data, or to meet
+        security, privacy and accessibility requirements for the protocols. The
+        behavior of the user agents when presenting with respect to the Web
+        content and the user is defined by the Presentation API.
       </li>
-      <li>Protocols that implement 1-UA mode for the Presentation API are not
-      in scope.
+      <li>
+        Protocols that implement 1-UA mode for the Presentation API are not
+        in scope.
       </li>
-      <li>Protocols that support use of presentation displays connected by
-      technologies other than IPv4/IPv6 networks (HDMI, Bluetooth, etc.) are
-      not in scope.
+      <li>
+        Protocols that implement the Remote Playback API for HTML media that
+        uses <a href="https://www.w3.org/TR/media-source/">Media Source
+        Extensions</a>
+        or <a href="https://www.w3.org/TR/encrypted-media/">Encrypted Media
+        Extensions</a> are not in scope.
+      </li>
+      <li>Protocols that support use of presentation displays connected by soley
+      technologies other than IPv4/IPv6 networks (HDMI, NFC, Bluetooth, etc.)
+      are not in scope.
       </li>
       <li>Developing specifications for use of the Presentation API with
       proprietary presentation display network protocols such as DIAL, DLNA,
@@ -282,16 +295,12 @@
     </p>
     <ol>
       <li>A specification for controlling and receiving user agents,
-      <em>Presentation Display Discovery and Connection</em>, that will specify
-      how the controlling user agent may find available presentation displays
-      (receiving user agents) on the local area network and establish two-way
-      communication with them.
-      </li>
-      <li>A specification for controlling and receiving user agents,
-      <em>Presentation Display Security</em>, that presents a security model
-      that provides authentication of the presentation display to the user and
-      confidentiality for data exchanged between the controlling user agent and
-      the receiving user agent.
+      <em>Presentation Display Discovery, Connection, and Security</em>, that
+      will specify how the controlling user agent may find available
+      presentation displays on the local area network, and establish two-way
+      communication with one of them.  It also describes how a controlling user
+      agent will authenticate a receiving user agent and establish
+      confidentiality for communication between them.
       </li>
       <li>A specification for controlling and receiving user agents,
       <em>Presentation Display Protocol for Remote Rendering</em>, that
