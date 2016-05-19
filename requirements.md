@@ -3,17 +3,17 @@
 This document is a working draft that captures a set of technical requirements
 for the network protocols to be developed by the [Second Screen Community
 Group](https://webscreens.github.io/cg-charter/).  These requirements are
-intended to guide the development of the specifications to be developed by the
-Second Screen Community Group.
+intended to guide the development of these specifications.
 
 The terms *controlling user agent*, *receiving user agent*, *controlling
 browsing context*, *receiving browsing context*, and *destination browsing
 context* are defined in the [Presentation
 API](https://w3c.github.io/presentation-api/).
 
-Below, the term "controller" is used as short for a controlling user agent and
+Also, the term "controller" is used as short for a controlling user agent and
 "receiver" as short for a receiving user agent.  "Presentation display" refers
-to a network-connected device that hosts the receiving user agent.
+to a network-connected device, such as a smart TV, set top box, or dongle that
+hosts the receiving user agent.
 
 ## <a name="spec-ddc"></a>Presentation Display Discovery, Connection, and Security requirements
 
@@ -26,8 +26,8 @@ Display Discovery, Connection, and Security*.
 the same IPv4 or IPv6 subnet and reachable by IP multicast.
 
 - It shall be able to obtain the IPv4 or IPv6 address of the receiver, a human
-readable name for the presentation display, and an IP address and port number of
-the receiver.
+readable name for the presentation display, and an IP port number for
+establishing a network connection to the receiver.
 
 *NOTE:* Requirements for presentation display discovery techniques other than
 via the LAN, such as Bluetooth and NFC, will be embedded within the
@@ -101,18 +101,17 @@ the controller (success or failure).
 ### <a name="REQ-R03"></a>REQ-D03: Receiving Browsing Context Status Change
 
 - A receiver shall be able to notify a connected controller when a receiving
-browsing context has been terminated (other than via the termination request
-above).
+browsing context has been terminated.
 
 - The notification shall be sent a short time after the receiving browsing
 context has been terminated.
 
 ### <a name="REQ-R04"></a>REQ-D04: Presentation Connections Between Browsing Contexts
 
-- A controller shall be able to connect a specific controlling browsing context to a
+- A controller shall be able to connect a controlling browsing context to a
 specific receiving browsing context in a receiver.
 
-- A controller shall be able to disconnect a specific controlling browsing context to a
+- A controller shall be able to disconnect a controlling browsing context from a
 specific receiving browsing context in a receiver.
 
 - A receiver shall be able to disconnect a receiving browsing context from a
@@ -123,11 +122,11 @@ specific controlling browsing context in a controller.
 - A user agent shall have a way to address a message to a specific destination
 browsing context.
 
-- From a given browsing context, messages sent to the destination browsing
-context shall arrive in-order.  This means: if message A is sent before
-message B on a single PresentationConnection, then a `message` event on the
-destination PresentationConnection with A will fire before a `message` event
-with B.
+- From a given browsing context, messages sent to a destination browsing context
+shall arrive in-order.  This means: if message A is sent before message B on a
+single PresentationConnection, then a `message` event on the corresponding
+PresentationConnection in the destination A will fire a `message` event with A
+before a `message` event with B.
 
 - The latency to transmit a message from the controller to the receiver shall
 approximate the network latency between the user agents (accounting for
