@@ -82,7 +82,7 @@
     <ul>
       <li>
         <em>Enable interoperability among implementations of the Presentation
-        API.</em> Browsers and displays that implement the proposed
+        API.</em> All browsers and displays that implement the proposed
         specifications should be able to act as <a href=
         "https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent">controlling
         user agents</a> or <a href=
@@ -106,13 +106,13 @@
       <li>
         <em>Establish complementary specifications for the Presentation
         API.</em> The Presentation API, by nature of its scope, leaves many
-        network details up to the implementation. This includes how
-        presentation displays are discovered, how presentations are started,
-        connected, and stopped, and how the controller and receiver
-        communicate. The proposed specifications will provide details on how
-        the implementation requirements of the Presentation API can be met and
-        should clarify issues that are not addressed in the Presentation API
-        specification.
+        network details up to the implementation. This includes how presentation
+        displays are discovered, how presentations are started, connected, and
+        stopped, and how the controller and receiver communicate. The proposed
+        specifications will provide details on how the implementation
+        requirements of the Presentation API can be met and will clarify
+        implementation issues that are not addressed in the Presentation API
+        specification itself.
       </li>
     </ul>
     <p>
@@ -159,8 +159,8 @@
       HTML page on the second screen with a messaging channel between the two
       pages to enable communication and control. The two pages can both be
       rendered on the controlling user agent with just the video display sent
-      to the second device (1-UA), or the second page can be rendered
-      independently on the receiving user agent (2-UA).
+      to the second device ("1-UA mode"), or the second page can be rendered
+      independently on the receiving user agent ("2-UA mode").
     </p>
     <p>
       The Presentation API abstracts away the means of connecting as well as
@@ -173,29 +173,35 @@
       The following tasks are in scope for the work of the community group.
     </p>
     <ol>
-      <li>The specification of a set of network protocols that allows one user
-      agent to use the Presentation API to discover and present Web content on
-      another user agent, when both user agents are connected to the same Local
-      Area Network (LAN).
+      <li>
+        The specification of a set of network protocols that allows one user
+        agent to use the Presentation API to discover and present Web content on
+        another user agent, when both user agents are connected to the same Local
+        Area Network (LAN).
       </li>
-      <li>Protocols that implement all of the interfaces, attributes,
-      methods, algorithms, and implementation requirements of the Presentation
-      API are in scope. This includes protocols that preserve the privacy and
-      security of data exchanged between the controlling and receiving user
-      agents.
+      <li>
+        Protocols that implement all of the interfaces, attributes, methods,
+        algorithms, and implementation requirements of the Presentation API are in
+        scope. This includes protocols that preserve the privacy and security of
+        data exchanged between the controlling and receiving user agents.
       </li>
-      <li>The 2-UA mode of the Presentation API is in scope. In 2-UA mode, the
-      receiving user agent renders the presented document independently and
-      messages between documents are exchanged via the network.
+      <li>
+        The 2-UA mode of the Presentation API is in scope, so the focus will
+        be on establishing presentations on a distinct receiving user agent. In
+        2-UA mode, the receiving user agent renders the presented document
+        independently and messages between documents are exchanged via the
+        network.
       </li>
-      <li>Protocols that implement all of the interfaces, attributes,
-      methods, algorithms, and implementation requirements of the Remote
-      Playback API are also in scope, for the specific case of remotely playing
-      a <code>&lt;video&gt;</code> element with a <code>src</code> URL media
-      source on a presentation display.
+      <li>
+        Protocols that implement all of the interfaces, attributes,
+        methods, algorithms, and implementation requirements of the Remote
+        Playback API are also in scope, for the specific case of remotely playing
+        a <code>&lt;video&gt;</code> element with a <code>src</code> URL media
+        source on a presentation display.
       </li>
-      <li>The development of open source, prototype implementations of the
-      protocols is in scope.
+      <li>
+        The development of open source, prototype implementations of the
+        protocols is in scope.
       </li>
     </ol>
     <p class="issue">
@@ -227,37 +233,41 @@
         or <a href="https://www.w3.org/TR/encrypted-media/">Encrypted Media
         Extensions</a> are not in scope.
       </li>
-      <li>Protocols that support use of presentation displays connected by soley
-      technologies other than IPv4/IPv6 networks (HDMI, NFC, Bluetooth, etc.)
-      are not in scope.
+      <li>
+        Protocols that support use of presentation displays connected solely by
+        technologies other than IPv4/IPv6 networks (HDMI, NFC, Bluetooth, etc.)
+        are not in scope. However, we do plan to investigate discovery of nearby
+        display using technologies other than IPv4/IPv6 networks;
+        see <a href="#non-normative-reports">Non-normative Reports</a>, below.
       </li>
-      <li>Developing specifications for use of the Presentation API with
-      proprietary presentation display network protocols such as DIAL, DLNA,
-      Google Cast, MiraCast, or Airplay are not in scope. However, we will
-      investigate mechanisms that allow the core protocol to be extended with
-      proprietary or experimental features, so that vendors can leverage the
-      discovery, security, and connection capabilities of the core protocols.
+      <li>
+        Developing specifications for use of the Presentation API with
+        proprietary presentation display network protocols such as DIAL, DLNA,
+        Google Cast, MiraCast, or Airplay are not in scope. However, we will
+        support mechanisms that allow the core protocol to be extended with
+        proprietary or experimental features, so that vendors can leverage the
+        discovery, security, and connection capabilities of the core protocols.
       </li>
-      <li>Developing protocols that allow interaction between controlling and
-      receiving user agents on different local area networks is not in scope.
-      However, we will investigate other mechanisms that would allow the core
-      protocols to function over WAN networks, such as the use of cloud relay
-      services.
+      <li>
+        Developing protocols that allow interaction between controlling and
+        receiving user agents on different local area networks is not in scope.
+        However, we will investigate other mechanisms that would allow the core
+        protocols to function over WAN networks, such as the use of cloud relay
+        services; see <a href="#non-normative-reports">Non-normative
+        Reports</a>, below.
       </li>
     </ul>
     <p class="issue">
       We should discuss whether supporting 1-UA mode is feasible and in scope
-      for the Community Group. TODO: File GH Issue
+      for the Community Group.
     </p>
     <p class="issue">
       We should discuss whether extending localization and accessibility
-      support across user agents is in scope for the Community Group. TODO:
-      File GH Issue
+      support across user agents is in scope for the Community Group.
     </p>
     <p class="issue">
-      For vendor extensions to protocols, 1-UA mode, and non-LAN use cases, we
-      may wish to add some non-normative reports on these topics to the scope
-      of work. TODO: File GH issue
+      For vendor extensions to protocols, 1-UA mode, and other topics, we may
+      wish to add extra non-normative reports to the scope of work.
     </p>
     <h2 id="deliverables">
       Deliverables
@@ -266,18 +276,17 @@
       The Community Group will deliver the following.
     </p>
     <ol>
-      <li>The <a href="#specifications">specifications</a> listed below.
+      <li>
+        The <a href="#specifications">specifications</a> listed below.
       </li>
-      <li>A prototype implementation of those specifications, published on
-      GitHub or an equivalent open source repository.
+      <li>
+        A prototype implementation of those specifications, published on
+        GitHub or an equivalent open source repository.
       </li>
-      <li>A demonstration of interoperabilty between two or more major browser
-      vendors and one or more presentation displays showing use of the
-      Presentation API using the specifications produced by this Community
-      Group.
-      </li>
-      <li>A test suite to verify the compliance of an implementation of the
-      specifications produced by this Community Group.
+      <li>
+        A demonstration of interoperabilty between two or more major browser
+        vendors and one or more presentation displays using the Presentation API
+        and the specifications produced by this Community Group.
       </li>
     </ol>
     <h3 id="specifications">
@@ -319,9 +328,8 @@
       titles may differ once scope and deliverables are finalized.
     </p>
     <p>
-      For conformance, a user agent (controlling or receiving) would be
-      required to implement the first, second, and third or fourth
-      specification.
+      For conformance, a user agent (whether controlling or receiving) would be
+      required to implement the first and second or third specification.
     </p>
     <p>
       To add any additional specifications, this Charter must be amended by the
@@ -348,14 +356,14 @@
         A non-normative report discussing how a controller can
         use <a href="https://www.bluetooth.com/what-is-bluetooth-technology/bluetooth-technology-basics/low-energy">Bluetooth
         Low Energy</a> to discover nearby presentation display.  If promising,
-        this can be the basis for a proposal to the
+        this could be the basis for a proposal to the
         appropriate <a href="https://www.bluetooth.com/membership-working-groups/working-groups">Bluetooth
         standards group</a>.
       </li>
       <li>
         A non-normative report how a controller can
         use <a href="http://nfc-forum.org/">Near Field Communications</a> to
-        discover a nearby presentation display.  If promising, this can be basis
+        discover a nearby presentation display.  If promising, this could be basis
         for a proposal to the
         appropriate <a href="http://nfc-forum.org/our-work/specifications-and-application-documents/">NFC
         standards forum</a>.
@@ -371,6 +379,10 @@
         Translators (NATs).
       </li>
     </ol>
+    <p class="issue">
+      We should discuss how to transition these reports into specifications and
+      eventually standards if they prove useful.
+    </p>
     <h3 id="test-suites">
       Test Suites
     </h3>
@@ -381,6 +393,10 @@
       Suites developed will use the <a href=
       "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">
       W3C Software and Document License</a>.
+    </p>
+    <p class="issue">
+      Is is required to deliver a test suite with the work in the group?  If so
+      what is its scope?
     </p>
     <h2 id="liaisons">
       Dependencies or Liaisons
