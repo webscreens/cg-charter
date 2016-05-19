@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US">
   <head>
     <title>
       Second Screen Community Group Charter
     </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="//www.w3.org/StyleSheets/TR/base">
-    <style>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/base" type=
+    "text/css" />
+    <style type="text/css">
       body {
         max-width: 60em;
         margin: auto;;
@@ -18,10 +19,21 @@
       li {
         margin-bottom: 9pt;
       }
-      .note {
-        background-color: yellow;
-        padding: 10px;
-      }
+      /* Note formatting taken from HTML5 spec */
+      .note { border-left-style: solid; border-left-width: 0.25em; background: none repeat scroll 0 0 #E9FBE9; border-color: #52E052; }
+      .note em, .warning em, .note i, .warning i { font-style: normal; }
+      p.note, div.note { padding: 0.5em 2em; }
+      span.note { padding: 0 2em; }
+      .note p:first-child { margin-top: 0; }
+      .note p:last-child { margin-bottom: 0; }
+      .note:before { content: 'NOTE: '; }
+      .issue { border-left-style: solid; border-left-width: 0.25em; background: none repeat scroll 0 0 #fbe9e9; border-color: #e05252; }
+      .issue em, .warning em, .issue i, .warning i { font-style: normal; }
+      p.issue, div.issue { padding: 0.5em 2em; }
+      span.issue { padding: 0 2em; }
+      .issue p:first-child { margin-top: 0; }
+      .issue p:last-child { margin-bottom: 0; }
+      .issue:before { content: 'ISSUE: '; }
     </style>
   </head>
   <body>
@@ -40,13 +52,13 @@
         Start Date:
       </dt>
       <dd>
-        DD MMM YYYY
+        06 May 2016
       </dd>
       <dt>
         Last Modified:
       </dt>
       <dd>
-        DD MMM YYYY
+        06 May 2016
       </dd>
     </dl>
     <div class="note">
@@ -57,28 +69,67 @@
       Goals
     </h2>
     <p>
-      The goal of the <a href="https://www.w3.org/community/webscreens/">Second
-      Screen Community Group (CG)</a> is to explore use of secondary screens
-      from Web pages. Specifically, the CG provides a venue for discussing and
-      incubating early proposals that aim to:
+      The <a href="https://www.w3.org/community/webscreens/">Second Screen
+      Community Group (CG)</a> explores the use of secondary screens from Web
+      pages. We propose that this Community Group incubate and develop
+      specifications and prototypes of network protocols that implement the
+      <a href="https://w3c.github.io/presentation-api/">Presentation API</a> and the
+      <a href="https://w3c.github.io/remote-playback/">Remote Playback API</a>.
+    </p>
+    <p>
+      This work has three primary purposes:
     </p>
     <ul>
-      <li>define a base set of protocols that <a href=
-      "https://w3c.github.io/presentation-api/">Presentation API</a>
-      implementers can refer to to implement the spec;
+      <li>
+        <em>Enable interoperability among implementations of the Presentation
+        API.</em> Browsers and displays that implement the proposed
+        specifications should be able to act as <a href=
+        "https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent">controlling
+        user agents</a> or <a href=
+        "https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent">receiving
+        user agents</a> for the Presentation API, with strong security and
+        authentication for the data exchanged among them. Interoperability among
+        controllers and receivers will increase the number of opportunities for
+        the Presentation API to be used. Interoperability will also create more
+        uniform and predictable API behavior across user agents, encouraging
+        adoption of the Presentation API by Web developers.
       </li>
-      <li>improve interoperability between implementations, i.e. the
-      possibility to associate a presentation controller with a presentation
-      receiver even if they have not been implemented by the same user agent.
+      <li>
+        <em>Encourage implementation of the Presentation API by browser
+        vendors.</em> The proposed specifications should reduce the design work
+        required to implement the Presentation API in a user agent. Ideally,
+        vendors will be able to incorporate any prototype implementation
+        produced by the Community Group directly into their products to
+        experiment and iterate on stability and performance, and provide
+        feedback to the group on the proposed specifications.
+      </li>
+      <li>
+        <em>Establish complementary specifications for the Presentation
+        API.</em> The Presentation API, by nature of its scope, leaves many
+        network details up to the implementation. This includes how
+        presentation displays are discovered, how presentations are started,
+        connected, and stopped, and how the controller and receiver
+        communicate. The proposed specifications will provide details on how
+        the implementation requirements of the Presentation API can be met and
+        should clarify issues that are not addressed in the Presentation API
+        specification.
       </li>
     </ul>
     <p>
-      Given wider support and adequate stability, proposals worked on in the CG
-      will be considered for migration to an appropriate W3C or IETF Working
-      Group. The above proposals go beyond the current <a href=
+      The scope of work proposed here goes beyond the current <a href=
       "http://www.w3.org/2014/secondscreen/charter.html#scope">scope</a> of the
       <a href="http://www.w3.org/2014/secondscreen/">Second Screen Working
-      Group (WG)</a>.
+      Group (WG)</a>. Given wider support and adequate stability, we plan to
+      migrate the proposals generated in this Community Group to an appropriate
+      standards track, for example the <a href=
+      "https://tools.ietf.org/html/rfc2026#section-4">IETF Standards Track</a>
+      or a <a href="https://www.w3.org/Consortium/activities#Working">W3C
+      Working Group</a>, for further contributions and formal standardization.
+    </p>
+    <p class="note">
+      The process, structure, format and patent policies of prospective
+      standards bodies should be discussed before committing to a particular
+      standards track for this work.
     </p>
     <p>
       Membership of the group is open to everybody. Upon joining the group,
@@ -100,36 +151,135 @@
       work was migrated to the W3C Second Screen Working Group (WG) and the
       Community Group Final Report was provided as input to the <a href=
       "https://w3c.github.io/presentation-api/">Presentation API</a> that is
-      now being worked on in the WG.
+      now being developed in the WG.
     </p>
     <p>
       The Presentation API allows web applications to use secondary screens to
       display Web content. The initiating HTML page can request display of an
-      HTML page on the second screen with a message channel between the two
+      HTML page on the second screen with a messaging channel between the two
       pages to enable communication and control. The two pages can both be
       rendered on the controlling user agent with just the video display sent
-      to the second device (1-UA), or the second page can be rendered on the
-      receiving user agent (2-UA).
+      to the second device (1-UA), or the second page can be rendered
+      independently on the receiving user agent (2-UA).
     </p>
     <p>
       The Presentation API abstracts away the means of connecting as well as
-      the underlying connection technologies.
+      the underlying communication and video streaming technologies.
     </p>
     <h2 id="scope-of-work">
       Scope of Work
     </h2>
     <p>
-      TBD
+      The following tasks are in scope for the work of the community group.
+    </p>
+    <ol>
+      <li>The specification of a set of network protocols that allows one user
+      agent to use the Presentation API to discover and present Web content on
+      another user agent, when both user agents are connected to the same Local
+      Area Network (LAN).
+      </li>
+      <li>Protocols that implement all of the interfaces, attributes,
+      methods, algorithms, and implementation requirements of the Presentation
+      API are in scope. This includes protocols that preserve the privacy and
+      security of data exchanged between the controlling and receiving user
+      agents.
+      </li>
+      <li>The 2-UA mode of the Presentation API is in scope. In 2-UA mode, the
+      receiving user agent renders the presented document independently and
+      messages between documents are exchanged via the network.
+      </li>
+      <li>Protocols that implement all of the interfaces, attributes,
+      methods, algorithms, and implementation requirements of the Remote
+      Playback API are also in scope, for the specific case of remotely playing
+      a <code>&lt;video&gt;</code> element with a <code>src</code> URL media
+      source on a presentation display.
+      </li>
+      <li>The development of open source, prototype implementations of the
+      protocols is in scope.
+      </li>
+    </ol>
+    <p class="issue">
+      For implementation development, check on licensing requirements for code
+      contributions.
     </p>
     <h2 id="out-of-scope">
       Out of Scope
     </h2>
     <p>
-      TBD
+      For this community group, the following tasks are out of scope.
+    </p>
+    <ul>
+      <li>
+        Specifications of user agent or presentation display behavior beyond
+        what is required to send, receive, and process network data, or to meet
+        security, privacy and accessibility requirements for the protocols. The
+        behavior of the user agents when presenting with respect to the Web
+        content and the user is defined by the Presentation API.
+      </li>
+      <li>
+        Protocols that implement 1-UA mode for the Presentation API are not
+        in scope.
+      </li>
+      <li>
+        Protocols that implement the Remote Playback API for HTML media that
+        uses <a href="https://www.w3.org/TR/media-source/">Media Source
+        Extensions</a>
+        or <a href="https://www.w3.org/TR/encrypted-media/">Encrypted Media
+        Extensions</a> are not in scope.
+      </li>
+      <li>Protocols that support use of presentation displays connected by soley
+      technologies other than IPv4/IPv6 networks (HDMI, NFC, Bluetooth, etc.)
+      are not in scope.
+      </li>
+      <li>Developing specifications for use of the Presentation API with
+      proprietary presentation display network protocols such as DIAL, DLNA,
+      Google Cast, MiraCast, or Airplay are not in scope. However, we will
+      investigate mechanisms that allow the core protocol to be extended with
+      proprietary or experimental features, so that vendors can leverage the
+      discovery, security, and connection capabilities of the core protocols.
+      </li>
+      <li>Developing protocols that allow interaction between controlling and
+      receiving user agents on different local area networks is not in scope.
+      However, we will investigate other mechanisms that would allow the core
+      protocols to function over WAN networks, such as the use of cloud relay
+      services.
+      </li>
+    </ul>
+    <p class="issue">
+      We should discuss whether supporting 1-UA mode is feasible and in scope
+      for the Community Group. TODO: File GH Issue
+    </p>
+    <p class="issue">
+      We should discuss whether extending localization and accessibility
+      support across user agents is in scope for the Community Group. TODO:
+      File GH Issue
+    </p>
+    <p class="issue">
+      For vendor extensions to protocols, 1-UA mode, and non-LAN use cases, we
+      may wish to add some non-normative reports on these topics to the scope
+      of work. TODO: File GH issue
     </p>
     <h2 id="deliverables">
       Deliverables
     </h2>
+    <p>
+      The Community Group will deliver the following.
+    </p>
+    <ol>
+      <li>The <a href="#specifications">specifications</a> listed below.
+      </li>
+      <li>A prototype implementation of those specifications, published on
+      GitHub or an equivalent open source repository.
+      </li>
+      <li>A demonstration of interoperabilty between two or more major browser
+      vendors and one or more presentation displays showing use of the
+      Presentation API using the specifications produced by this Community
+      Group.
+      </li>
+      <li>A test suite to verify the compliance of an implementation of the
+      specifications produced by this Community Group.
+      </li>
+    </ol>
     <h3 id="specifications">
       Specifications
     </h3>
@@ -138,26 +288,48 @@
       section</strong>.
     </p>
     <p>
+      The Community Group will produce the following specifications.  The
+      protocols described by these specifications are designed to meet
+      the <a href="requirements.md">functional and security requirements</a> of
+      the Presentation API and the Remote Playback API.
+    </p>
+    <ol>
+      <li>A specification for controlling and receiving user agents,
+      <em>Presentation Display Discovery, Connection, and Security</em>, that
+      will specify how the controlling user agent may find available
+      presentation displays on the local area network, and establish two-way
+      communication with one of them.  It also describes how a controlling user
+      agent will authenticate a receiving user agent and establish
+      confidentiality for communication between them.
+      </li>
+      <li>A specification for controlling and receiving user agents,
+      <em>Presentation Display Protocol for Remote Rendering</em>, that
+      describes how a controlling user agent may start, connect, stop and
+      exchange messages with a presentation on a receiving user agent.
+      </li>
+      <li>A specification for controlling and receiving user agents,
+      <em>Presentation Display Protocol for Remote Playback</em>, that
+      describes how a controlling user agent may start and control remote
+      playback of a <code>&lt;video&gt;</code> element using a
+      <code>src=</code> URL media source.
+      </li>
+    </ol>
+    <p class="note">
+      The specification titles are for demonstration purposes, the actual
+      titles may differ once scope and deliverables are finalized.
+    </p>
+    <p>
+      For conformance, a user agent (controlling or receiving) would be
+      required to implement the first, second, and third or fourth
+      specification.
+    </p>
+    <p>
       To add any additional specifications, this Charter must be amended by the
       process described in the <a href="#charter-change">Amendments to the
       Charter</a> section. All deliverables for which the CLA <a href=
       "https://www.w3.org/community/about/agreements/cla/#id3">Patents</a>
       section applies must be designated as such here.
     </p>
-    <dl>
-      <dt>
-        Feature
-      </dt>
-      <dd>
-        Description
-      </dd>
-      <dt>
-        ...
-      </dt>
-      <dd>
-        ...
-      </dd>
-    </dl>
     <h3 id="non-normative-reports">
       Non-Normative Reports
     </h3>
@@ -168,6 +340,37 @@
       such reports, as described in the <a href="#scope-of-work">Scope of
       Work</a> section.
     </p>
+    <p>
+      The group will consider producing the following reports:
+    </p>
+    <ol>
+      <li>
+        A non-normative report discussing how a controller can
+        use <a href="https://www.bluetooth.com/what-is-bluetooth-technology/bluetooth-technology-basics/low-energy">Bluetooth
+        Low Energy</a> to discover nearby presentation display.  If promising,
+        this can be the basis for a proposal to the
+        appropriate <a href="https://www.bluetooth.com/membership-working-groups/working-groups">Bluetooth
+        standards group</a>.
+      </li>
+      <li>
+        A non-normative report how a controller can
+        use <a href="http://nfc-forum.org/">Near Field Communications</a> to
+        discover a nearby presentation display.  If promising, this can be basis
+        for a proposal to the
+        appropriate <a href="http://nfc-forum.org/our-work/specifications-and-application-documents/">NFC
+        standards forum</a>.
+      </li>
+      <li>
+        A non-normative report on
+        how <a href="https://tools.ietf.org/html/rfc5389">Session Traversal
+        Utilities for Networks</a> (STUN)
+        and <a href="https://tools.ietf.org/html/rfc5766">Traversal Around
+        Relays Using NAT</a> (TURN), in conjunction with Internet-connected
+        servers, can be used to facilitate communication between controllers and
+        presentation displays whose networks are separated by Network Address
+        Translators (NATs).
+      </li>
+    </ol>
     <h3 id="test-suites">
       Test Suites
     </h3>
@@ -240,8 +443,8 @@
       "LICENSE.md">LICENSE</a> files.
     </p>
     <p>
-      Note: this CG will not use a <em>contrib</em> mailing list for
-      contributions since all contributions will be tracked via Github
+      Note: this Community Group will not use a <em>contrib</em> mailing list
+      for contributions since all contributions will be tracked via Github
       mechanisms (e.g. pull requests).
     </p>
     <h2 id="chairs">
@@ -281,15 +484,15 @@
       This group will seek to make decisions when there is consensus. The
       Editor(s) of a specification will determine and record consensus
       decisions through the specification's GitHub repo issue list with
-      assistance from the CG Chair(s). Members of the group may reopen issues
-      with new technical information.
+      assistance from the Community Group Chair(s). Members of the group may
+      reopen issues with new technical information.
     </p>
     <p>
       It is the Chairs' responsibility to ensure that the decision process is
-      fair, respects the consensus of the CG, and does not unreasonably favour
-      or discriminate against any group participant or their employer. With
-      that said, the group favours forward motion and dissent will not be
-      allowed to block work on a specification.
+      fair, respects the consensus of the Community Group, and does not
+      unreasonably favour or discriminate against any group participant or
+      their employer. With that said, the group favours forward motion and
+      dissent will not be allowed to block work on a specification.
     </p>
     <p>
       If substantial disagreement remains (e.g. the group is divided) and there
