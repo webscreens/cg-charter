@@ -44,14 +44,14 @@ the presentation URLs and presentation IDs of those presentations.
 - If a receiver is newly available to a controller (by connecting to the same
 LAN, powering on, etc.) the controller shall be able to determine this status
 change within a reasonable amount of time, so that pages using the
-Presentation API can show receive presentation display availablity changes in
+Presentation API can show receive presentation display availability changes in
 a timely manner.
 
 - If a receiver is no longer available to a controller (or vice versa) (by
 losing power, becoming disconnected from the network, etc.), the controller (or
 receiver) will be able to determine this status change within a reasonable
 amount of time, so that pages using the Presentation API can show receive
-presentation display availablity changes in a timely manner.
+presentation display availability changes in a timely manner.
 
 ### <a name="REQ-D02"></a>REQ-D03: Presentation URL Compatibility
 
@@ -110,13 +110,13 @@ context has been terminated.
 ### <a name="REQ-R04"></a>REQ-D04: Presentation Connections Between Browsing Contexts
 
 - A controller shall be able to connect a specific controlling browsing context to a
-specific receiving browing context in a receiver.
+specific receiving browsing context in a receiver.
 
 - A controller shall be able to disconnect a specific controlling browsing context to a
-specific receiving browing context in a receiver.
+specific receiving browsing context in a receiver.
 
 - A receiver shall be able to disconnect a receiving browsing context from a
-specific controlling browing context in a controller.
+specific controlling browsing context in a controller.
 
 ### <a name="REQ-R05"></a>REQ-D05: Presentation Connection Messaging
 
@@ -146,9 +146,6 @@ megabytes in size.
 
 ## <a name="spec-playback"></a>Presentation Display Remote Playback Requirements
 
-TBD.
+To be determined as the Remote Playback API evolves.
 
-## References
-
-TBD.
 
