@@ -82,7 +82,7 @@
     <ul>
       <li>
         <em>Enable interoperability among implementations of the Presentation
-        API.</em> All browsers and displays that implement the proposed
+        API.</em> All browsers and displays that implement the
         specifications should be able to act as <a href=
         "https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent">controlling
         user agents</a> or <a href=
@@ -90,13 +90,13 @@
         user agents</a> for the Presentation API, with strong security and
         authentication for the data exchanged among them. Interoperability among
         controllers and receivers will increase the number of opportunities for
-        the Presentation API to be used. Interoperability will also create more
+        the Presentation API to be useful. Interoperability will also create more
         uniform and predictable API behavior across user agents, encouraging
         adoption of the Presentation API by Web developers.
       </li>
       <li>
         <em>Encourage implementation of the Presentation API by browser
-        vendors.</em> The proposed specifications should reduce the design work
+        vendors.</em> The specifications should reduce the design work
         required to implement the Presentation API in a user agent.
       </li>
       <li>
@@ -104,7 +104,7 @@
         API.</em> The Presentation API, by nature of its scope, leaves many
         network details up to the implementation. This includes how presentation
         displays are discovered, how presentations are started, connected, and
-        stopped, and how the controller and receiver communicate. The proposed
+        stopped, and how the controller and receiver communicate. The
         specifications will provide details on how the implementation
         requirements of the Presentation API can be met and will clarify
         implementation issues that are not addressed in the Presentation API
@@ -189,13 +189,21 @@
         network.
       </li>
       <li>
-        Protocols that implement all of the interfaces, attributes,
-        methods, algorithms, and implementation requirements of the Remote
-        Playback API are also in scope, for the specific case of remotely playing
-        a <code>&lt;video&gt;</code> element with a <code>src</code> URL media
-        source on a presentation display.
+        Protocols that implement all of the interfaces, attributes, methods,
+        algorithms, and implementation requirements of the Remote Playback API
+        are also in scope, for the specific case of remotely playing
+        a <code>&lt;video&gt;</code> element with a <code>src</code>
+        or <code>source</code>s URL media source on a presentation display.  (In
+        the Remote Playback API, this is referred to as the "media flinging"
+        case.)
       </li>
     </ol>
+    <p>
+      Where possible, the group will use established normative standards as a
+      basis for specifications to reduce the scope of work.  For example, local
+      area discovery could be implemented
+      via <a href="https://tools.ietf.org/html/rfc6762">Multicast DNS</a>.
+    </p>
     <h2 id="out-of-scope">
       Out of Scope
     </h2>
@@ -206,7 +214,7 @@
       <li>
         Additions to the APIs defined in the Second Screen WG are out of scope
         other than what is necessary to implement those APIs by remoting
-        requests to the second user agent. Defining media codecs or new
+        requests to the second user agent.  Defining media codecs or new
         specifications for transmitting media codecs is out of scope.
       </li>
       <li>
@@ -221,27 +229,16 @@
         Extensions</a> are not in scope.
       </li>
       <li>
-        Protocols that support use of presentation displays connected solely by
-        technologies other than IPv4/IPv6 networks (HDMI, NFC, Bluetooth, etc.)
-        are not in scope. However, we do plan to investigate discovery of nearby
-        display using technologies other than IPv4/IPv6 networks;
-        see <a href="#non-normative-reports">Non-normative Reports</a>, below.
+        Protocols that support use of presentation displays connected by
+        technologies other than IPv4/IPv6 local area networks are not in scope.
+        Protocols that allow interaction between controlling and receiving user
+        agents on different local area networks (i.e., firewall
+        or NAT traversal) are not in scope.
       </li>
       <li>
         Developing specifications for use of the Presentation API with
         proprietary presentation display network protocols such as DIAL, DLNA,
-        Google Cast, MiraCast, or Airplay are not in scope. However, we will
-        support mechanisms that allow the core protocol to be extended with
-        proprietary or experimental features, so that vendors can leverage the
-        discovery, security, and connection capabilities of the core protocols.
-      </li>
-      <li>
-        Developing protocols that allow interaction between controlling and
-        receiving user agents on different local area networks is not in scope.
-        However, we will investigate other mechanisms that would allow the core
-        protocols to function over WAN networks, such as the use of cloud relay
-        services; see <a href="#non-normative-reports">Non-normative
-        Reports</a>, below.
+        Google Cast, MiraCast, or Airplay are not in scope.
       </li>
     </ul>
     <p class="issue">
@@ -252,51 +249,35 @@
       Deliverables
     </h2>
     <p>
-      The Community Group will deliver
-      the <a href="#specifications">specifications</a> listed below.
-    </p>
-    <h3 id="specifications">
-      Specifications
-    </h3>
-    <p>
       <strong>The group will only produce Specifications listed in this
       section</strong>.
     </p>
     <p>
-      The Community Group will produce the following specifications.  The
-      protocols described by these specifications are designed to meet
+      The Community Group will deliver specifications designed to meet
       the <a href="requirements.md">functional and security requirements</a> of
       the Presentation API and the Remote Playback API.
     </p>
     <ol>
-      <li>A specification for controlling and receiving user agents,
-      <em>Presentation Display Discovery, Connection, and Security</em>, that
-      will specify how the controlling user agent may find available
-      presentation displays on the local area network, and establish two-way
-      communication with one of them.  It also describes how a controlling user
-      agent will authenticate a receiving user agent and establish
-      confidentiality for communication between them.
+      <li>
+        A specification for controlling and receiving user agents that describes
+        how the controlling user agent will find available presentation displays
+        on the local area network and establish two-way communication with one
+        of them.  It also describes how the controlling user agent will
+        authenticate the receiving user agent and establish a confidential
+        communication channel.
       </li>
-      <li>A specification for controlling and receiving user agents,
-      <em>Presentation Display Protocol for Remote Rendering</em>, that
-      describes how a controlling user agent may start, connect, stop and
-      exchange messages with a presentation on a receiving user agent.
+      <li>
+        A specification for controlling and receiving user agents that
+        describes how a controlling user agent may start, connect, stop and
+        exchange messages with a presentation on a receiving user agent via
+        the Presentation API.
       </li>
-      <li>A specification for controlling and receiving user agents,
-      <em>Presentation Display Protocol for Remote Playback</em>, that
-      describes how a controlling user agent may start and control remote
-      playback of a <code>&lt;video&gt;</code> element using a
-      <code>src=</code> URL media source.
+      <li>
+        A specification for controlling and receiving user agents that describes
+        how a controlling user agent may start and control remote playback via
+        the Remote Playback API.
       </li>
     </ol>
-    <p class="note">
-      The specification titles are for demonstration purposes, the actual
-      titles may differ once scope and deliverables are finalized.
-    </p>
-    <p>
-      For conformance, a user agent (whether controlling or receiving) would be
-      required to implement the first and second or third specification.
-    </p>
     <p>
       To add any additional specifications, this Charter must be amended by the
       process described in the <a href="#charter-change">Amendments to the
