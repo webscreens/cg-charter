@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <title>
       Second Screen Community Group Charter
     </title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="//www.w3.org/StyleSheets/TR/base">
-    <style>
+    <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/base" type=
+    "text/css">
+    <style type="text/css">
       body {
         max-width: 60em;
         margin: auto;;
@@ -18,10 +18,21 @@
       li {
         margin-bottom: 9pt;
       }
-      .note {
-        background-color: yellow;
-        padding: 10px;
-      }
+      /* Note formatting taken from HTML5 spec */
+      .note { border-left-style: solid; border-left-width: 0.25em; background: none repeat scroll 0 0 #E9FBE9; border-color: #52E052; }
+      .note em, .warning em, .note i, .warning i { font-style: normal; }
+      p.note, div.note { padding: 0.5em 2em; }
+      span.note { padding: 0 2em; }
+      .note p:first-child { margin-top: 0; }
+      .note p:last-child { margin-bottom: 0; }
+      .note:before { content: 'NOTE: '; }
+      .issue { border-left-style: solid; border-left-width: 0.25em; background: none repeat scroll 0 0 #fbe9e9; border-color: #e05252; }
+      .issue em, .warning em, .issue i, .warning i { font-style: normal; }
+      p.issue, div.issue { padding: 0.5em 2em; }
+      span.issue { padding: 0 2em; }
+      .issue p:first-child { margin-top: 0; }
+      .issue p:last-child { margin-bottom: 0; }
+      .issue:before { content: 'ISSUE: '; }
     </style>
   </head>
   <body>
@@ -40,13 +51,13 @@
         Start Date:
       </dt>
       <dd>
-        DD MMM YYYY
+        XX XXX 2016
       </dd>
       <dt>
         Last Modified:
       </dt>
       <dd>
-        DD MMM YYYY
+        30 May 2016
       </dd>
     </dl>
     <div class="note">
@@ -57,28 +68,63 @@
       Goals
     </h2>
     <p>
-      The goal of the <a href="https://www.w3.org/community/webscreens/">Second
-      Screen Community Group (CG)</a> is to explore use of secondary screens
-      from Web pages. Specifically, the CG provides a venue for discussing and
-      incubating early proposals that aim to:
+      The <a href="https://www.w3.org/community/webscreens/">Second Screen
+      Community Group (CG)</a> explores the use of secondary screens from Web
+      pages. We propose that this Community Group incubate and develop
+      specifications of network protocols that implement the <a href=
+      "https://w3c.github.io/presentation-api/">Presentation API</a> and the
+      <a href="https://w3c.github.io/remote-playback/">Remote Playback API</a>.
+    </p>
+    <p>
+      This work has three primary purposes:
     </p>
     <ul>
-      <li>define a base set of protocols that <a href=
-      "https://w3c.github.io/presentation-api/">Presentation API</a>
-      implementers can refer to to implement the spec;
+      <li>
+        <em>Enable interoperability among implementations of the Presentation
+        API.</em> All browsers and displays that implement the specifications
+        should be able to act as <a href=
+        "https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent">controlling
+        user agents</a> or <a href=
+        "https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent">receiving
+        user agents</a> for the Presentation API, with strong security and
+        authentication for the data exchanged among them. Interoperability
+        among controllers and receivers will increase the number of
+        opportunities for the Presentation API to be useful. Interoperability
+        will also create more uniform and predictable API behavior across user
+        agents, encouraging adoption of the Presentation API by Web developers.
       </li>
-      <li>improve interoperability between implementations, i.e. the
-      possibility to associate a presentation controller with a presentation
-      receiver even if they have not been implemented by the same user agent.
+      <li>
+        <em>Encourage implementation of the Presentation API by browser
+        vendors.</em> The specifications should reduce the design work required
+        to implement the Presentation API in a user agent.
+      </li>
+      <li>
+        <em>Establish complementary specifications for the Presentation
+        API.</em> The Presentation API, by nature of its scope, leaves many
+        network details up to the implementation. This includes how
+        presentation displays are discovered, how presentations are started,
+        connected, and stopped, and how the controller and receiver
+        communicate. The specifications will provide details on how the
+        implementation requirements of the Presentation API can be met and will
+        clarify implementation issues that are not addressed in the
+        Presentation API specification itself.
       </li>
     </ul>
     <p>
-      Given wider support and adequate stability, proposals worked on in the CG
-      will be considered for migration to an appropriate W3C or IETF Working
-      Group. The above proposals go beyond the current <a href=
+      The scope of work proposed here goes beyond the current <a href=
       "http://www.w3.org/2014/secondscreen/charter.html#scope">scope</a> of the
       <a href="http://www.w3.org/2014/secondscreen/">Second Screen Working
-      Group (WG)</a>.
+      Group (WG)</a>. Given wider support and adequate stability, we plan to
+      migrate the proposals generated in this Community Group to an appropriate
+      standards track, for example the <a href=
+      "https://tools.ietf.org/html/rfc2026#section-4">IETF Standards Track</a>
+      or a <a href="https://www.w3.org/Consortium/activities#Working">W3C
+      Working Group</a>, for further contributions and formal standardization.
+    </p>
+    <p class="note">
+      The process, structure, format and patent policies of prospective
+      standards bodies should be discussed before committing to a particular
+      standards track for this work.
     </p>
     <p>
       Membership of the group is open to everybody. Upon joining the group,
@@ -100,43 +146,126 @@
       work was migrated to the W3C Second Screen Working Group (WG) and the
       Community Group Final Report was provided as input to the <a href=
       "https://w3c.github.io/presentation-api/">Presentation API</a> that is
-      now being worked on in the WG.
+      now being developed in the WG.
     </p>
     <p>
       The Presentation API allows web applications to use secondary screens to
       display Web content. The initiating HTML page can request display of an
-      HTML page on the second screen with a message channel between the two
+      HTML page on the second screen with a messaging channel between the two
       pages to enable communication and control. The two pages can both be
       rendered on the controlling user agent with just the video display sent
-      to the second device (1-UA), or the second page can be rendered on the
-      receiving user agent (2-UA).
+      to the second device ("1-UA mode"), or the second page can be rendered
+      independently on the receiving user agent ("2-UA mode").
     </p>
     <p>
       The Presentation API abstracts away the means of connecting as well as
-      the underlying connection technologies.
+      the underlying communication and video streaming technologies.
     </p>
     <h2 id="scope-of-work">
       Scope of Work
     </h2>
     <p>
-      TBD
+      The following tasks are in scope for the work of the community group.
+    </p>
+    <ol>
+      <li>The specification of a set of network protocols that allows one user
+      agent to use the Presentation API to discover and present Web content on
+      another user agent, when both user agents are connected to the same Local
+      Area Network (LAN).
+      </li>
+      <li>Protocols that implement all of the interfaces, attributes, methods,
+      algorithms, and implementation requirements of the Presentation API are
+      in scope. This includes protocols that preserve the privacy and security
+      of data exchanged between the controlling and receiving user agents.
+      </li>
+      <li>The 2-UA mode of the Presentation API is in scope, so the focus will
+      be on establishing presentations on a distinct receiving user agent. In
+      2-UA mode, the receiving user agent renders the presented document
+      independently and messages between documents are exchanged via the
+      network.
+      </li>
+      <li>Protocols that implement all of the interfaces, attributes, methods,
+      algorithms, and implementation requirements of the Remote Playback API
+      are also in scope, for the specific case of remotely playing a
+      <code>&lt;video&gt;</code> element with a <code>src</code> or
+      <code>source</code>s URL media source on a presentation display. (In the
+      Remote Playback API, this is referred to as the "media flinging" case.)
+      </li>
+      <li>Extension points for protocols developed are in scope, to make it
+      possible to add new features via future specifications produced outside
+      of this community group. For example, features such as 1-UA mode that are
+      out of scope for this community group may be supported through future
+      protocol extensions.
+      </li>
+    </ol>
+    <p>
+      Where possible, the group will use established normative standards as a
+      basis for specifications to reduce the scope of work. For example, local
+      area discovery could be implemented via <a href=
+      "https://tools.ietf.org/html/rfc6762">Multicast DNS</a>.
     </p>
     <h2 id="out-of-scope">
       Out of Scope
     </h2>
     <p>
-      TBD
+      For this community group, the following tasks are out of scope.
     </p>
+    <ul>
+      <li>Additions to the APIs defined in the Second Screen WG are out of
+      scope other than what is necessary to implement those APIs by remoting
+      requests to the second user agent. Defining media codecs or new
+      specifications for transmitting media codecs is out of scope.
+      </li>
+      <li>Protocols that implement 1-UA mode for the Presentation API are not
+      in scope.
+      </li>
+      <li>Protocols that implement the Remote Playback API for HTML media that
+      uses <a href="https://www.w3.org/TR/media-source/">Media Source
+      Extensions</a> or <a href=
+      "https://www.w3.org/TR/encrypted-media/">Encrypted Media Extensions</a>
+      are not in scope.
+      </li>
+      <li>Protocols that support use of presentation displays connected by
+      technologies other than IPv4/IPv6 local area networks are not in scope.
+      Protocols that allow interaction between controlling and receiving user
+      agents on different local area networks (i.e., firewall or NAT traversal)
+      are not in scope.
+      </li>
+      <li>Developing specifications for use of the Presentation API with
+      proprietary presentation display network protocols such as DIAL, DLNA,
+      Google Cast, MiraCast, or Airplay are not in scope.
+      </li>
+    </ul>
     <h2 id="deliverables">
       Deliverables
     </h2>
-    <h3 id="specifications">
-      Specifications
-    </h3>
     <p>
       <strong>The group will only produce Specifications listed in this
       section</strong>.
     </p>
+    <p>
+      The Community Group will deliver specifications designed to meet the
+      <a href="requirements.md">functional and security requirements</a> of the
+      Presentation API and the Remote Playback API.
+    </p>
+    <ol>
+      <li>A specification for controlling and receiving user agents that
+      describes how the controlling user agent will find available presentation
+      displays on the local area network and establish two-way communication
+      with one of them. It also describes how the controlling user agent will
+      authenticate the receiving user agent and establish a confidential
+      communication channel.
+      </li>
+      <li>A specification for controlling and receiving user agents that
+      describes how a controlling user agent may start, connect, stop and
+      exchange messages with a presentation on a receiving user agent via the
+      Presentation API.
+      </li>
+      <li>A specification for controlling and receiving user agents that
+      describes how a controlling user agent may start and control remote
+      playback via the Remote Playback API.
+      </li>
+    </ol>
     <p>
       To add any additional specifications, this Charter must be amended by the
       process described in the <a href="#charter-change">Amendments to the
@@ -144,40 +273,13 @@
       "https://www.w3.org/community/about/agreements/cla/#id3">Patents</a>
       section applies must be designated as such here.
     </p>
-    <dl>
-      <dt>
-        Feature
-      </dt>
-      <dd>
-        Description
-      </dd>
-      <dt>
-        ...
-      </dt>
-      <dd>
-        ...
-      </dd>
-    </dl>
     <h3 id="non-normative-reports">
       Non-Normative Reports
     </h3>
     <p>
-      The CLA <a href=
-      "https://www.w3.org/community/about/agreements/cla/#id3">Patents</a>
-      section does not apply to Non-Normative Reports. The group may produce
-      such reports, as described in the <a href="#scope-of-work">Scope of
-      Work</a> section.
-    </p>
-    <h3 id="test-suites">
-      Test Suites
-    </h3>
-    <p>
-      The CLA <a href=
-      "https://www.w3.org/community/about/agreements/cla/#id3">Patents</a>
-      section does not apply to Test Suites this group may produce. Any Test
-      Suites developed will use the <a href=
-      "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">
-      W3C Software and Document License</a>.
+      The group may produce other Community Group Reports within the scope of
+      this charter but that are not Specifications, for instance use cases,
+      requirements, or white papers.
     </p>
     <h2 id="liaisons">
       Dependencies or Liaisons
@@ -197,7 +299,7 @@
       </li>
     </ul>
     <h2 id="process">
-      Community and Business Group Process and Patent Policy
+      Community and Business Group Process
     </h2>
     <p>
       The group operates under the <a href=
@@ -209,40 +311,106 @@
       As with other Community Groups, W3C seeks organizational licensing
       commitments under the <a href=
       'http://www.w3.org/community/about/agreements/cla/'>W3C Community
-      Contributor License Agreement (CLA)</a>. Proposals in this Community
-      Group charter are applicable "Specification" in the CLA. When people
-      request to participate without representing their organization's legal
-      interests, W3C will in general approve those requests for this group with
-      the following understanding: W3C will seek and expect an organizational
+      Contributor License Agreement (CLA)</a>. When people request to
+      participate without representing their organization's legal interests,
+      W3C will in general approve those requests for this group with the
+      following understanding: W3C will seek and expect an organizational
       commitment under the CLA starting with the individual's first request to
-      make a contribution to <a href="#deliverables">Deliverables</a>. The
-      section on <a href="#contrib">Contribution Mechanics</a> describes how
-      W3C expects to monitor these contribution requests.
+      make a contribution to a group <a href="#deliverables">Deliverable</a>.
+      The section on <a href="#contrib">Contribution Mechanics</a> describes
+      how W3C expects to monitor these contribution requests.
+    </p>
+    <h2 id="worklimit">
+      Work Limited to Charter Scope
+    </h2>
+    <p>
+      The group will not publish Specifications on topics other than those
+      listed under <a href="#specifications">Specifications</a> above. See
+      below for <a href="#charter-change">how to modify the charter</a>.
     </p>
     <h2 id="contrib">
       Contribution Mechanics
     </h2>
     <p>
-      Community Group participants agree to make contributions in the GitHub
-      repository for the project that they are interested in. This may be in
-      the form of a pull request (preferred), by raising an issue, or by adding
-      a comment to an existing issue.
+      Substantive Contributions to Specifications can only be made by Community
+      Group Participants who have agreed to the <a href=
+      "http://www.w3.org/community/about/agreements/cla/">W3C Community
+      Contributor License Agreement (CLA)</a>.
     </p>
     <p>
-      Specifications created for proposals in the Community Group must use the
-      <a href=
+      Specifications created in the Community Group must use the <a href=
       "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">
-      W3C Software and Document License</a>.
+      W3C Software and Document License</a>. All other documents produced by
+      the group should use that License where possible.
+    </p>
+    <p>
+      Community Group participants agree to make all contributions in the
+      GitHub repo the group is using for the particular document. This may be
+      in the form of a pull request (preferred), by raising an issue, or by
+      adding a comment to an existing issue.
     </p>
     <p>
       All Github repositories attached to the Community Group must contain a
-      copy of the <a href="CONTRIBUTING.md">CONTRIBUTING</a> and <a href=
-      "LICENSE.md">LICENSE</a> files.
+      copy of the <a href=
+      "https://github.com/w3c/licenses/blob/master/CG-CONTRIBUTING.md">CONTRIBUTING</a>
+      and <a href=
+      "https://github.com/w3c/licenses/blob/master/CG-LICENSE.md">LICENSE</a>
+      files.
+    </p>
+    <h2 id="transparency">
+      Transparency
+    </h2>
+    <p>
+      The group will conduct all of its technical work in public. All technical
+      work will occur in its GitHub repositories (and not in mailing list
+      discussions). This is to ensure contributions can be tracked through a
+      software tool.
     </p>
     <p>
-      Note: this CG will not use a <em>contrib</em> mailing list for
-      contributions since all contributions will be tracked via Github
-      mechanisms (e.g. pull requests).
+      Meetings may be restricted to Community Group participants, but a public
+      summary or minutes must be posted to the group's public mailing list and
+      <a href=
+      "https://www.w3.org/community/webscreens/wiki/Main_Page">Wiki</a>.
+    </p>
+    <h2 id="decision">
+      Decision Process
+    </h2>
+    <p>
+      This group will seek to make decisions where there is consensus. Groups
+      are free to decide how to make decisions (e.g. Participants who have
+      earned Committer status for a history of useful contributions assess
+      consensus, or the Chair assesses consensus, or where consensus isn't
+      clear there is a Call for Consensus [CfC] to allow multi-day online
+      feedback for a proposed course of action). It is expected that
+      participants can earn Committer status through a history of valuable
+      contributions as is common in open source projects. After discussion and
+      due consideration of different opinions, a decision should be publicly
+      recorded (where GitHub is used as the resolution of an Issue).
+    </p>
+    <p>
+      If substantial disagreement remains (e.g. the group is divided) and the
+      group needs to decide an Issue in order to continue to make progress, the
+      Committers will choose an alternative that had substantial support (with
+      a vote of Committers if necessary). Individuals who disagree with the
+      choice are strongly encouraged to take ownership of their objection by
+      taking ownership of an alternative fork. This is explicitly allowed (and
+      preferred to blocking progress) with a goal of letting implementation
+      experience inform which spec is ultimately chosen by the group to move
+      ahead with.
+    </p>
+    <p>
+      Any decisions reached at any meeting are tentative and should be recorded
+      in a GitHub Issue for groups that use GitHub and otherwise on the group's
+      public mail list. Any group participant may object to a decision reached
+      at an online or in-person meeting within 10 days of publication of the
+      decision provided that they include clear technical reasons for their
+      objection. The Chairs will facilitate discussion to try to resolve the
+      objection according to the <a href="#decision">decision process</a>.
+    </p>
+    <p>
+      It is the Chairs' responsibility to ensure that the decision process is
+      fair, respects the consensus of the CG, and does not unreasonably favour
+      or discriminate against any group participant or their employer.
     </p>
     <h2 id="chairs">
       Chair Selection
@@ -253,7 +421,7 @@
       participants, no two from the same organisation, call for an election,
       the group must use the following process to replace any current Chair(s)
       with a new Chair, consulting the Community Development Lead on election
-      operations (e.g., voting infrastructure and using RFC 2777).
+      operations.
     </p>
     <ol>
       <li>Participants announce their candidacies. Participants have 14 days to
@@ -265,66 +433,15 @@
       <li>Participants vote. Participants have 21 days to vote for a single
       candidate, but this period ends as soon as all participants have voted.
       The individual who receives the most votes, no two from the same
-      organisation, is elected chair. In case of a tie, RFC2777 is used to
-      break the tie. An elected Chair may appoint co-Chairs.
+      organisation, is elected chair. In case of a tie, a process requested
+      from the Community Development Lead is used to break the tie. An elected
+      Chair may appoint co-Chairs.
       </li>
     </ol>
     <p>
       Participants dissatisfied with the outcome of an election may ask the
       Community Development Lead to intervene. The Community Development Lead,
       after evaluating the election, may take any action including no action.
-    </p>
-    <h2 id="decision">
-      Decision Process
-    </h2>
-    <p>
-      This group will seek to make decisions when there is consensus. The
-      Editor(s) of a specification will determine and record consensus
-      decisions through the specification's GitHub repo issue list with
-      assistance from the CG Chair(s). Members of the group may reopen issues
-      with new technical information.
-    </p>
-    <p>
-      It is the Chairs' responsibility to ensure that the decision process is
-      fair, respects the consensus of the CG, and does not unreasonably favour
-      or discriminate against any group participant or their employer. With
-      that said, the group favours forward motion and dissent will not be
-      allowed to block work on a specification.
-    </p>
-    <p>
-      If substantial disagreement remains (e.g. the group is divided) and there
-      is a call for assessing consensus after due consideration of different
-      opinions, the Chair should record a decision and any objections.
-      Participants may call for an online vote if they feel the Chair has not
-      accurately determined the consensus of the group or if the Chair refuses
-      to assess consensus. The call for a vote must specify the duration of the
-      vote which must be at least 7 days and should be no more than 14 days.
-      The Chair must start the vote within 7 days of the request. The decision
-      will be based on the majority of the ballots cast.
-    </p>
-    <p>
-      Initially, the Editor(s) and Chair(s) are the only Committers. It is
-      expected that participants can earn Committer status in a GitHub
-      reposiroty through a history of valuable contributions as is common in
-      open source projects.
-    </p>
-    <h2 id="transparency">
-      Transparency
-    </h2>
-    <p>
-      The group will conduct all of its technical work on its GitHub
-      repositories (and not in mailing list discussions). This is to ensure
-      contributions can be tracked and to ensure that engagement will scale to
-      a large number of proposals.
-    </p>
-    <p>
-      Any decisions reached at any meeting are tentative and should be recorded
-      in the repository issues list. Any group participant may object to a
-      decision reached at an online or in-person meeting within 7 days of
-      publication of the decision provided that they include clear technical
-      reasons for their objection. The Chairs will facilitate discussion to try
-      to resolve the objection according to the <a href="#decision">Decision
-      Process</a>.
     </p>
     <h2 id="charter-change">
       Amendments to this Charter
