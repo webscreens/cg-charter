@@ -90,7 +90,7 @@ URL.
 - The receiver shall be able to return the outcome of the creation request to the
 controller (success or failure).
 
-### <a name="REQ-R02"></a>REQ-D02: Terminating A Receiving Browsing Context
+### <a name="REQ-R02"></a>REQ-R02: Terminating A Receiving Browsing Context
 
 - A controller shall be able to request the termination of a receiving browsing
 context on a receiver, given a Presentation ID and Presentation URL.
@@ -98,7 +98,7 @@ context on a receiver, given a Presentation ID and Presentation URL.
 - The receiver shall be able to return the outcome of the termination request to
 the controller (success or failure).
 
-### <a name="REQ-R03"></a>REQ-D03: Receiving Browsing Context Status Change
+### <a name="REQ-R03"></a>REQ-R03: Receiving Browsing Context Status Change
 
 - A receiver shall be able to notify a connected controller when a receiving
 browsing context has been terminated.
@@ -106,7 +106,7 @@ browsing context has been terminated.
 - The notification shall be sent a short time after the receiving browsing
 context has been terminated.
 
-### <a name="REQ-R04"></a>REQ-D04: Presentation Connections Between Browsing Contexts
+### <a name="REQ-R04"></a>REQ-R04: Presentation Connections Between Browsing Contexts
 
 - A controller shall be able to connect a controlling browsing context to a
 specific receiving browsing context in a receiver.
@@ -117,7 +117,7 @@ specific receiving browsing context in a receiver.
 - A receiver shall be able to disconnect a receiving browsing context from a
 specific controlling browsing context in a controller.
 
-### <a name="REQ-R05"></a>REQ-D05: Presentation Connection Messaging
+### <a name="REQ-R05"></a>REQ-R05: Presentation Connection Messaging
 
 - A user agent shall have a way to address a message to a specific destination
 browsing context.
