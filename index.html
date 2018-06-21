@@ -57,7 +57,7 @@
         Last Modified:
       </dt>
       <dd>
-        29 August 2016
+        20 June 2018
       </dd>
     </dl>
     <h2 id="goals">
@@ -66,10 +66,12 @@
     <p>
       The <a href="https://www.w3.org/community/webscreens/">Second Screen
       Community Group (CG)</a> explores the use of secondary screens from Web
-      pages. We propose that this Community Group incubate and develop
-      specifications of network protocols that implement the <a href=
+      pages. This Community Group incubates and develops specifications of
+      network protocols that implement the <a href=
       "https://w3c.github.io/presentation-api/">Presentation API</a> and the
       <a href="https://w3c.github.io/remote-playback/">Remote Playback API</a>.
+      In addition, this Community Group incubates new additions to the APIs
+      defined in the Second Screen WG.
     </p>
     <p>
       This work has three primary purposes:
@@ -158,6 +160,9 @@
     <p>
       The following tasks are in scope for the work of the community group.
     </p>
+    <h3 id="scope-protocols">
+      Specifications of network protocols
+    </h3>
     <ol>
       <li>The specification of a set of network protocols that allows one user
       agent to use the Presentation API to discover and present Web content on
@@ -179,15 +184,25 @@
       algorithms, and implementation requirements of the Remote Playback API
       are also in scope, for the specific case of remotely playing a
       <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code> element with a
-      <code>src</code> or <code>source</code>s URL media source on a presentation
-      display. (In the Remote Playback API, this is referred to as the 
-      media flinging" case.)
+      <code>src</code> or <code>source</code>s URL media source on a
+      presentation display. (In the Remote Playback API, this is referred to as
+      the "media flinging" case.)
       </li>
       <li>Extension points for protocols developed are in scope, to make it
       possible to add new features via future specifications produced outside
       of this community group. For example, features such as 1-UA mode that are
       out of scope for this community group may be supported through future
       protocol extensions.
+      </li>
+    </ol>
+    <h3 id="scope-apis">
+      New additions to the APIs
+    </h3>
+    <ol>
+      <li>An addition to the Presentation API called "local presentation mode"
+      is in scope to facilitate 1-UA mode use cases that involve e.g. offline
+      usage, cookie-based authentication, and sharing of application state
+      across the controller and presentation.
       </li>
     </ol>
     <p>
@@ -203,9 +218,10 @@
       For this community group, the following tasks are out of scope.
     </p>
     <ul>
-      <li>Additions to the APIs defined in the Second Screen WG are out of
-      scope other than what is necessary to implement those APIs by remoting
-      requests to the second user agent. Defining media codecs or new
+      <li>Any additions to the APIs defined in the Second Screen WG not
+      explicitly listed in <a href="#scope-apis">new additions to the APIs</a>
+      are out of scope other than what is necessary to implement those APIs by
+      remoting requests to the second user agent. Defining media codecs or new
       specifications for transmitting media codecs is out of scope.
       </li>
       <li>Protocols that implement 1-UA mode for the Presentation API are not
@@ -256,6 +272,12 @@
       <li>A specification for controlling and receiving user agents that
       describes how a controlling user agent may start and control remote
       playback via the Remote Playback API.
+      </li>
+      <li>A specification extension to the Presentation API called "local
+      presentation mode" that removes the restriction on presentations to use a
+      separate storage area and allows the controlling browsing context and the
+      receiving browsing context have access to each other's document context
+      similarly to the <code>window.open</code> API.
       </li>
     </ol>
     <p>
