@@ -151,6 +151,14 @@
       The Presentation API abstracts away the means of connecting as well as
       the underlying communication and video streaming technologies.
     </p>
+    <p>
+      The Second Screen Community Group also delivered the
+      <a href="https://w3c.github.io/remote-playback/">Remote Playback API</a>,
+      now under development in the WG. The Remote Playback API extends the
+      HTMLMediaElement (e.g., an <code>&lt;audio&gt;</code>
+      or <code>&lt;video&gt;</code> element) to control remote playback of media from a
+      Web page.
+    </p>
     <h2 id="scope-of-work">
       Scope of Work
     </h2>
@@ -171,11 +179,7 @@
       in scope. This includes protocols that preserve the privacy and security
       of data exchanged between the controlling and receiving user agents.
       </li>
-      <li>The 2-UA mode of the Presentation API is in scope, so the focus will
-      be on establishing presentations on a distinct receiving user agent. In
-      2-UA mode, the receiving user agent renders the presented document
-      independently and messages between documents are exchanged via the
-      network.
+      <li>Both the 2-UA and 1-UA modes of the Presentation API are in scope.
       </li>
       <li>Protocols that implement all of the interfaces, attributes, methods,
       algorithms, and implementation requirements of the Remote Playback API
@@ -192,6 +196,10 @@
           <a href="https://w3c.github.io/remote-playback/#dfn-media-remoting">media
           remoting</a>.
         </p>
+      </li>
+      <li>Streaming media between the controlling and receiving user agent is in
+        scope, as this capability underlies both 1-UA mode for the Presentation
+        API and media remoting for the Remote Playback API.
       </li>
       <li>Extension points for protocols developed are in scope, to make it
       possible to add new features via future specifications produced outside of
