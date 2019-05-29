@@ -1,7 +1,8 @@
-[DRAFT] Second Screen Community Group Charter
+Second Screen Community Group Charter
 =======
 
-This repository is used to solicit input from the wider community regarding
-[proposed rechartering of the Second Screen Community Group](https://github.com/w3c/presentation-api/issues/220).
+This repository is used to hold working drafts of the charter of the Second
+Screen Community Group.  It is used to solicit input from the wider community
+regarding updates to the charter.
 
-* [DRAFT Second Screen Community Group Charter](https://webscreens.github.io/cg-charter/)
+* [Second Screen Community Group Charter Draft](https://webscreens.github.io/cg-charter/)
