@@ -57,7 +57,7 @@
         Last Modified:
       </dt>
       <dd>
-        20 June 2018
+        28 May 2019
       </dd>
     </dl>
     <h2 id="goals">
@@ -79,33 +79,30 @@
     <ul>
       <li>
         <em>Enable interoperability among implementations of the Presentation
-        API.</em> All browsers and displays that implement the specifications
-        should be able to act as <a href=
-        "https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent">controlling
-        user agents</a> or <a href=
-        "https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent">receiving
-        user agents</a> for the Presentation API, with strong security and
-        authentication for the data exchanged among them. Interoperability
-        among controllers and receivers will increase the number of
-        opportunities for the Presentation API to be useful. Interoperability
-        will also create more uniform and predictable API behavior across user
-        agents, encouraging adoption of the Presentation API by Web developers.
+        API and Remote Playback API.</em> All browsers and displays that
+        implement the specifications should be able to support the APIs, with
+        strong security and authentication for the data exchanged among
+        them. Interoperability among controllers and receivers will increase the
+        number of opportunities for the Presentation API and Remote Playback API
+        to be useful. Interoperability will also create more uniform and
+        predictable API behavior across user agents, encouraging adoption of the
+        Presentation API and Remote Playback API by Web developers.
       </li>
       <li>
-        <em>Encourage implementation of the Presentation API by browser
-        vendors.</em> The specifications should reduce the design work required
-        to implement the Presentation API in a user agent.
+        <em>Encourage implementation of the Presentation API and Remote Playback
+        API by browser vendors.</em> The specifications should reduce the design
+        work required to implement the APIs in a user agent.
       </li>
       <li>
-        <em>Establish complementary specifications for the Presentation
-        API.</em> The Presentation API, by nature of its scope, leaves many
-        network details up to the implementation. This includes how
-        presentation displays are discovered, how presentations are started,
-        connected, and stopped, and how the controller and receiver
-        communicate. The specifications will provide details on how the
-        implementation requirements of the Presentation API can be met and will
-        clarify implementation issues that are not addressed in the
-        Presentation API specification itself.
+        <em>Establish complementary specifications for the Presentation API and
+        Remote Playback API.</em> The Presentation API and Remote Playback API,
+        by nature of their scope, leave many network details up to the
+        implementation. This includes how displays are discovered, how
+        presentations and remote playbacks are started, connected, and stopped,
+        and how the controller and receiver communicate. The specifications will
+        provide details on how the implementation requirements of the APIs can
+        be met and will clarify implementation issues that are not addressed in
+        the API specifications themselves.
       </li>
     </ul>
     <p>
@@ -146,13 +143,24 @@
       display Web content. The initiating HTML page can request display of an
       HTML page on the second screen with a messaging channel between the two
       pages to enable communication and control. The two pages can both be
-      rendered on the controlling user agent with just the video display sent
-      to the second device ("1-UA mode"), or the second page can be rendered
-      independently on the receiving user agent ("2-UA mode").
+      rendered on the controlling user agent with just the video display sent to
+      the second device in
+      <a href="https://w3c.github.io/presentation-api/#dfn-x1-ua">1-UA mode</a>,
+      or the second page can be rendered independently on the receiving user
+      agent in
+      <a href="https://w3c.github.io/presentation-api/#dfn-x2-ua">2-UA mode</a>.
     </p>
     <p>
       The Presentation API abstracts away the means of connecting as well as
       the underlying communication and video streaming technologies.
+    </p>
+    <p>
+      The Second Screen Community Group also delivered the
+      <a href="https://w3c.github.io/remote-playback/">Remote Playback API</a>,
+      now under development in the WG. The Remote Playback API extends the
+      HTMLMediaElement (e.g., an <code>&lt;audio&gt;</code>
+      or <code>&lt;video&gt;</code> element) to control remote playback of media from a
+      Web page.
     </p>
     <h2 id="scope-of-work">
       Scope of Work
@@ -174,25 +182,33 @@
       in scope. This includes protocols that preserve the privacy and security
       of data exchanged between the controlling and receiving user agents.
       </li>
-      <li>The 2-UA mode of the Presentation API is in scope, so the focus will
-      be on establishing presentations on a distinct receiving user agent. In
-      2-UA mode, the receiving user agent renders the presented document
-      independently and messages between documents are exchanged via the
-      network.
+      <li>Both the 2-UA and 1-UA modes of the Presentation API are in scope.
       </li>
       <li>Protocols that implement all of the interfaces, attributes, methods,
       algorithms, and implementation requirements of the Remote Playback API
       are also in scope, for the specific case of remotely playing a
       <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code> element with a
-      <code>src</code> or <code>source</code>s URL media source on a
-      presentation display. (In the Remote Playback API, this is referred to as
-      the "media flinging" case.)
+      <code>src</code> or <code>source</code>s media source on a remote playback
+      device.  The controlling user agent should be able to send the URL of the
+      media source or stream the media data to the remote playback device.
+        <p class="note">
+          In the Remote Playback API, sending the URL for remote playback is
+          referred to as
+          <a href="https://w3c.github.io/remote-playback/#dfn-media-flinging">media
+          flinging</a>.  Sending the media data itself is referred to as
+          <a href="https://w3c.github.io/remote-playback/#dfn-media-remoting">media
+          remoting</a>.
+        </p>
+      </li>
+      <li>Streaming media between the controlling and receiving user agent is in
+        scope, as this capability underlies both 1-UA mode for the Presentation
+        API and media remoting for the Remote Playback API.
       </li>
       <li>Extension points for protocols developed are in scope, to make it
-      possible to add new features via future specifications produced outside
-      of this community group. For example, features such as 1-UA mode that are
-      out of scope for this community group may be supported through future
-      protocol extensions.
+      possible to add new features via future specifications produced outside of
+      this community group. For example, features such as communication across
+      LANs that are out of scope for this community group at this time may be
+      supported through future protocol extensions.
       </li>
     </ol>
     <h3 id="scope-apis">
@@ -224,14 +240,9 @@
       remoting requests to the second user agent. Defining media codecs or new
       specifications for transmitting media codecs is out of scope.
       </li>
-      <li>Protocols that implement 1-UA mode for the Presentation API are not
-      in scope.
-      </li>
       <li>Protocols that implement the Remote Playback API for HTML media that
-      uses <a href="https://www.w3.org/TR/media-source/">Media Source
-      Extensions</a> or <a href=
-      "https://www.w3.org/TR/encrypted-media/">Encrypted Media Extensions</a>
-      are not in scope.
+      uses <a href="https://www.w3.org/TR/encrypted-media/">Encrypted Media
+      Extensions</a> are not in scope.
       </li>
       <li>Protocols that support use of presentation displays connected by
       technologies other than IPv4/IPv6 local area networks are not in scope.
@@ -253,8 +264,9 @@
     </p>
     <p>
       The Community Group will deliver specifications designed to meet the
-      <a href="requirements.md">functional and security requirements</a> of the
-      Presentation API and the Remote Playback API.
+      <a href="https://github.com/webscreens/openscreenprotocol/blob/gh-pages/requirements.md">
+      functional and security requirements</a> of the Presentation API and the
+      Remote Playback API.
     </p>
     <ol>
       <li>A specification for controlling and receiving user agents that
