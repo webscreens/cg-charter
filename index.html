@@ -57,7 +57,7 @@
         Last Modified:
       </dt>
       <dd>
-        1 January 2020
+        7 February 2020
       </dd>
     </dl>
     <h2 id="goals">
@@ -73,9 +73,11 @@
       <a href="https://w3c.github.io/remote-playback/">Remote Playback API</a>,
       and incubates the <a href=
       "https://github.com/webscreens/screen-enumeration/blob/master/EXPLAINER.md">
-      Screen Enumeration</a> and <a href=
-      "https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md">Window
-      Placement</a> APIs.
+      Screen Enumeration</a>, <a href=
+      "https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md">
+      Window Placement</a>, and <a href=
+      "https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/master/Foldables/explainer.md#proposal-window-segments-enumeration-javascript-api">
+      Window Segments Enumeration</a> APIs.
     </p>
     <p>
       The scope of work for this Community Group extends beyond the current
@@ -113,9 +115,11 @@
     <p>
       The CG adopted the <a href=
       "https://github.com/webscreens/screen-enumeration/blob/master/EXPLAINER.md">
-      Screen Enumeration</a> and <a href=
-      "https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md">Window
-      Placement</a> APIs as its new incubations in 2020.
+      Screen Enumeration</a>, <a href=
+      "https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md">
+      Window Placement</a>, and <a href=
+      "https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/master/Foldables/explainer.md#proposal-window-segments-enumeration-javascript-api">
+      Window Segments Enumeration</a> APIs as its new incubations in 2020.
     </p>
     <h2 id="scope-of-work">
       Scope of Work
@@ -179,6 +183,20 @@
         Screen Enumeration.
       </li>
     </ul>
+    <h3 id="window-segments-enumeration">
+      Window Segments Enumeration
+    </h3>
+    <ul>
+      <li>The <a href=
+      "https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/master/Foldables/explainer.md#proposal-window-segments-enumeration-javascript-api">
+        Window Segments Enumeration API</a> proposes a new concept of Window
+        Segments that represent the regions (and their dimensions) of the
+        window that reside on separate (adjacent) displays. Window Segment
+        dimensions are expressed in CSS pixels and will be exposed via a
+        JavaScript API that allows developers to enumerate segments where
+        logically separate pieces of content can be placed.
+      </li>
+    </ul>
     <h2 id="out-of-scope">
       Out of Scope
     </h2>
@@ -235,7 +253,15 @@
         Window Placement</a> explainer. See <a href="#window-placement">Scope
         of Work</a>.
       </dd>
-      <dd></dd>
+      <dt>
+        Window Segments Enumeration API
+      </dt>
+      <dd>
+        Adopted from the <a href=
+        "https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/master/Foldables/explainer.md#proposal-window-segments-enumeration-javascript-api">
+        Window Segments Enumeration API</a> explainer. See <a href=
+        "#window-segments-enumeration">Scope of Work</a>.
+      </dd>
     </dl>
     <p>
       To add any additional specifications, this Charter must be amended by the
