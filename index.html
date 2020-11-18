@@ -57,7 +57,7 @@
         Last Modified:
       </dt>
       <dd>
-        26 February 2020
+        18 November 2020
       </dd>
     </dl>
     <h2 id="goals">
@@ -67,17 +67,8 @@
       The mission of the <a href=
       "https://www.w3.org/community/webscreens/">Second Screen Community Group
       (CG)</a> is to explore, incubate, and define interfaces that enable new
-      multi-display and multi-window computing user experiences on the Web.
-      This Community Group defines new additions to the <a href=
-      "https://w3c.github.io/presentation-api/">Presentation API</a> and
-      <a href="https://w3c.github.io/remote-playback/">Remote Playback API</a>,
-      and incubates the <a href=
-      "https://github.com/webscreens/screen-enumeration/blob/master/EXPLAINER.md">
-      Screen Enumeration</a>, <a href=
-      "https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md">
-      Window Placement</a>, and <a href=
-      "https://github.com/webscreens/window-segments/blob/master/EXPLAINER.md">Window
-      Segments Enumeration</a> APIs.
+      form factors and usages for multi-display and multi-window computing user
+      experiences on the Web.
     </p>
     <p>
       The scope of work for this Community Group extends beyond the current
@@ -121,6 +112,16 @@
       "https://github.com/webscreens/window-segments/blob/master/EXPLAINER.md">Window
       Segments Enumeration</a> APIs as its new incubations in 2020.
     </p>
+    <p>
+      The Screen Enumeration and Window Placement APIs merged to form a new
+      <a href="https://webscreens.github.io/window-placement/">Multi-Screen
+      Window Placement API</a>.
+    </p>
+    <p>
+      The CG adopted the <a href=
+      "https://webscreens.github.io/form-factors/">Form Factors Explained</a>
+      document as a new non-normative report in 2020.
+    </p>
     <h2 id="scope-of-work">
       Scope of Work
     </h2>
@@ -156,31 +157,15 @@
         v2 features</a> by the WG.
       </li>
     </ul>
-    <h3 id="screen-enumeration">
-      Screen Enumeration
-    </h3>
-    <ul>
-      <li>The <a href=
-      "https://github.com/webscreens/screen-enumeration/blob/master/EXPLAINER.md">
-        Screen Enumeration API</a> provides developers information about the
-        set of connected physical displays and additional display properties.
-        Use cases include slide show presentation with a laptop screen and a
-        projector, finance applications with multiple windows spread over
-        multiple displays, and windows spanning multiple displays with
-        different hardware properties.
-      </li>
-    </ul>
     <h3 id="window-placement">
-      Window Placement
+      Multi-Screen Window Placement
     </h3>
     <ul>
       <li>The <a href=
-      "https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md">
-        Window Placement API</a> builds upon the foundation of the Screen
-        Enumeration API and provides developers further means to open and move
-        windows across the full set of connected displays and control the
-        window state (e.g. maximized, restored). Use cases are shared with the
-        Screen Enumeration.
+      "https://webscreens.github.io/window-placement/">Multi-Screen Window
+      Placement API</a> defines means to query the device for information about
+      connected displays, and also defines additional APIs to position windows
+      relative to those displays.
       </li>
     </ul>
     <h3 id="window-segments-enumeration">
@@ -195,6 +180,18 @@
         dimensions are expressed in CSS pixels and will be exposed via a
         JavaScript API that allows developers to enumerate segments where
         logically separate pieces of content can be placed.
+      </li>
+    </ul>
+    <h3 id="form-factors">
+      Form Factors Explained (Non-Normative Report)
+    </h3>
+    <ul>
+      <li>The <a href="https://webscreens.github.io/form-factors/">Form Factors
+      Explained</a> is a non-normative report that proposes a naming scheme for
+      new device form factors referred to as foldable devices to be able to use
+      these terms and concepts consistently in related web specifications. This
+      explainer also discusses multi-monitor setups that extend the overall
+      visual workspace of a device.
       </li>
     </ul>
     <h2 id="out-of-scope">
@@ -233,24 +230,17 @@
         Adopted from the <a href=
         "https://github.com/mfoltzgoogle/local-presentation-api/blob/gh-pages/explainer.md">
         Local Presentation Mode</a> explainer. See <a href=
-        "#local-presentation-mode">Scope of Work</a>.
+        "#presentation-api-v2">Scope of Work</a>.
       </dd>
       <dt>
-        Screen Enumeration API
-      </dt>
-      <dd>
-        Adopted from the <a href=
-        "https://github.com/webscreens/screen-enumeration/blob/master/EXPLAINER.md">
-        Screen Enumeration</a> explainer. See <a href=
-        "#screen-enumeration">Scope of Work</a>.
-      </dd>
-      <dt>
-        Window Placement API
+        Multi-Screen Window Placement API
       </dt>
       <dd>
         Adopted from the <a href=
         "https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md">
-        Window Placement</a> explainer. See <a href="#window-placement">Scope
+        Window Placement</a> and the <a href=
+        "https://github.com/webscreens/screen-enumeration/blob/master/EXPLAINER.md">
+        Screen Enumeration</a> explainer. See <a href="#window-placement">Scope
         of Work</a>.
       </dd>
       <dt>
@@ -273,6 +263,14 @@
     <h3 id="non-normative-reports">
       Non-Normative Reports
     </h3>
+    <dl>
+      <dt>
+        Form Factors Explained
+      </dt>
+      <dd>
+        See <a href="#form-factors">Scope of Work</a>.
+      </dd>
+    </dl>
     <p>
       The group may produce other Community Group Reports within the scope of
       this charter but that are not Specifications, for instance use cases,
